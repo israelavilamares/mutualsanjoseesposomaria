@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A311D32-22A8-417A-B5D8-99EBA8F6DDA8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>mutualsanjoseesposomaria</RootNamespace>
+    <AssemblyName>mutualsanjoseesposomaria</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mysql.data, Version=8.0.30.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Desktop\mysql-connector-net-5.2.7\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="beneficiarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="beneficiarios.Designer.cs">
+      <DependentUpon>beneficiarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eliminar.Designer.cs">
+      <DependentUpon>eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main program.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main program.Designer.cs">
+      <DependentUpon>main program.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modificar.Designer.cs">
+      <DependentUpon>modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pagoparcial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pagoparcial.Designer.cs">
+      <DependentUpon>pagoparcial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pagos.Designer.cs">
+      <DependentUpon>pagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pagosunicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pagosunicos.Designer.cs">
+      <DependentUpon>pagosunicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pagos_normal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pagos_normal.Designer.cs">
+      <DependentUpon>pagos_normal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="seguimientodepagoparcial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="seguimientodepagoparcial.Designer.cs">
+      <DependentUpon>seguimientodepagoparcial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="seguimientodepagounico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="seguimientodepagounico.Designer.cs">
+      <DependentUpon>seguimientodepagounico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="seguimientopagonormal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="seguimientopagonormal.Designer.cs">
+      <DependentUpon>seguimientopagonormal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="todosocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="todosocios.Designer.cs">
+      <DependentUpon>todosocios.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="beneficiarios.resx">
+      <DependentUpon>beneficiarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eliminar.resx">
+      <DependentUpon>eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main program.resx">
+      <DependentUpon>main program.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modificar.resx">
+      <DependentUpon>modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pagoparcial.resx">
+      <DependentUpon>pagoparcial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pagos.resx">
+      <DependentUpon>pagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pagosunicos.resx">
+      <DependentUpon>pagosunicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pagos_normal.resx">
+      <DependentUpon>pagos_normal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="seguimientodepagoparcial.resx">
+      <DependentUpon>seguimientodepagoparcial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="seguimientodepagounico.resx">
+      <DependentUpon>seguimientodepagounico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="seguimientopagonormal.resx">
+      <DependentUpon>seguimientopagonormal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="todosocios.resx">
+      <DependentUpon>todosocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.CustomInstaller.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlBulkLoader.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlClientFactory.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlCommand.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlCommandBuilder.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlConnection.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlConnectionStringBuilder.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlDataAdapter.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlDataReader.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlError.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlException.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlHelper.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlInfoMessageEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlInfoMessageEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlParameter.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlParameterCollection.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatedEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatedEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatingEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlRowUpdatingEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScript.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScriptErrorEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScriptErrorEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlScriptEventArgs.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlStatementExecutedEventHandler.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlTransaction.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.MySqlClient.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.Types.MySqlConversionException.datasource" />
+    <None Include="Properties\DataSources\MySql.Data.Types.MySqlDateTime.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2022-12-06 at 2.37.51 PM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\descarga.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2022-12-06 at 2.37.51 PM %281%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\descarga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\descarga %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\descarga %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\descarga %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -30,10 +30,12 @@ namespace mutualsanjoseesposomaria
             fecha_ingresotxt.Clear();
             ciudadtxt.Clear();
             calletxt.Clear();
-            numero_casatxt.Clear();
+            observacionestxb.Clear();
             telefonotxt.Clear();
             fecha_Ntxt.Clear();
             edadtxt.Clear();
+            fecha_ingresotxt.Clear();
+            coloniatxb.Clear();
             //estado de la persona
             if (estadoctx.Text == "FALLECIDO")
             {
@@ -68,7 +70,13 @@ namespace mutualsanjoseesposomaria
                 ok = false;
                 errorProvider1.SetError(sexotxt, "ingresa el sexo de socio");
             }
-            if (fecha_Ntxt.Text == "")
+            if ((fecha_ingresotxt.Text == "") || fecha_ingresotxt.Text == "AAAA/MM/DD")
+            {
+                ok = false;
+                errorProvider1.SetError(fecha_ingresotxt, "Ingresa La Fecha de Ingreso Del Socio");
+
+            }
+            if ((fecha_Ntxt.Text == "") || (fecha_Ntxt.Text == "AAAA/MM/DD") )
             {
                 ok = false;
                 errorProvider1.SetError(fecha_Ntxt, "ingresa la fecha de nacimiento de socio");
@@ -83,15 +91,11 @@ namespace mutualsanjoseesposomaria
                 ok = false;
                 errorProvider1.SetError(calletxt, "Ingresa la calle");
             }
-            if (edadtxt.Text == "")
+       
+            if (observacionestxb.Text == "")
             {
                 ok = false;
-                errorProvider1.SetError(edadtxt, "Ingresa la edad");
-            }
-            if (numero_casatxt.Text == "")
-            {
-                ok = false;
-                errorProvider1.SetError(numero_casatxt, "Ingresa el numero de casa");
+                errorProvider1.SetError(observacionestxb, "Ingresa el numero de casa");
             }
             if (telefonotxt.Text == "")
             {
@@ -108,6 +112,12 @@ namespace mutualsanjoseesposomaria
                 ok = false;
                 errorProvider1.SetError(estadoctx, "ingresa el estado del socio");
             }
+            if(coloniatxb.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(coloniatxb, "Ingresa El Colonia Del Socio");
+
+            }
             return ok;
         }
         private void borrarerrores()
@@ -119,46 +129,63 @@ namespace mutualsanjoseesposomaria
             errorProvider1.SetError(fecha_Ntxt, "");
             errorProvider1.SetError(ciudadtxt, "");
             errorProvider1.SetError(calletxt, "");
-            errorProvider1.SetError(edadtxt, "");
-            errorProvider1.SetError(numero_casatxt, "");
+          //  errorProvider1.SetError(edadtxt, "");
+            errorProvider1.SetError(observacionestxb, "");
             errorProvider1.SetError(telefonotxt, "");
             errorProvider1.SetError(tipo_pctx, "");
             errorProvider1.SetError(estadoctx, "");
+            errorProvider1.SetError(coloniatxb, "");
+
         }
 
 
 
         private void agregar_Click(object sender, EventArgs e)
         {
-            
+         if (Validacion())
+         {
+                string obser = observacionestxb.Text;
          // int numero_socio = int.Parse(idtxt.Text);                       
             string nombre_socio = nombretxt.Text.ToUpper();
             string apellido_socio = apellidotxt.Text.ToUpper();
             string sexo_socio = sexotxt.Text.ToUpper();
-            DateTime fecha = DateTime.Now;
-            //conversion
-            string nueva = fecha.ToString("yyyy/MM/dd hh:mm:ss");
-            //mostrar en texbox
-            fecha_ingresotxt.Text = nueva;
 
+            //conversion
+            //string formato;
+            string nueva = fecha_ingresotxt.Text;
+            //string nueva = fecha.ToString("yyyy/MM/dd hh:mm:ss");
+            //mostrar en texbox
+            //fecha de nacimiento
             string fecha_naciemnto = fecha_Ntxt.Text;
+
+        
+          //  obtfechact - Convert.ToDateTime(fecha_Ntxt);
+
             string ciudad_socio = ciudadtxt.Text.ToUpper();
             string calle_socio = calletxt.Text.ToUpper();
-        //    int edad_socio = int.Parse(edadtxt.Text);
-          //  int numero_casa_socio = int.Parse(numero_casatxt.Text);
-        //  int telefono_socio = int.Parse(telefonotxt.Text);            
-         //   int tipo_p_socio = int.Parse(tipo_pctx.Text);
             string estado = estadoctx.Text;
+            string colonia = coloniatxb.Text;
 
-            if (!Validacion())
-            {
-                MessageBox.Show("inserta el valor faltante correspondiente para seguir!!");
-            }
-            else
-            {
-                borrarerrores();
+                
+                
+            DateTime obtfechact = DateTime.Now;
+                try
+                {
+                    DateTime fechanac = DateTime.Parse(fecha_naciemnto);
+                    TimeSpan diferencia = obtfechact - fechanac;
+                    double dias = diferencia.TotalDays;
+                    double edad = Math.Floor(dias / 365);
+                    edadtxt.Text = Convert.ToString(edad);
+                }
+                catch
+                {
+                    MessageBox.Show("Esta Mal Revisa el formato  de fecha");
+                    return;
+                }
+        
 
-                string sql = "INSERT INTO mutualsanjose.socios(id,nombre,apellido,sexo,fecha_ingreso,ciudad,calle,numero,tipo_p,telefono,edad,fecha_naciento,estado)VALUES('" + idtxt.Text + "','" + nombre_socio + "','" + apellido_socio + "','" + sexo_socio + "','" + nueva + "','" + ciudad_socio + "','" + calle_socio + "','" + numero_casatxt.Text + "','" + tipo_pctx.Text + "','" + telefonotxt.Text + "','" + edadtxt.Text + "','" + fecha_naciemnto + "','" + estado + "')";
+
+                string sql = "INSERT INTO mutualsanjose.socios(id,nombre,apellido,sexo,fecha_ingreso,ciudad,calle,numero,tipo_p,telefono,edad,fecha_naciento,estado,colonia,observaciones)VALUES('" + idtxt.Text + "','" + nombre_socio + "','" + apellido_socio + "','" + sexo_socio + "','" + nueva + "','" + ciudad_socio + "','" + calle_socio + "','" + tipo_pctx.Text + "','" + telefonotxt.Text + "','" + edadtxt.Text + "','" + fecha_naciemnto + "','" + estado + "','" + colonia + "','"+ obser +"')";
 
                 MySqlConnection conexionDB = Conexion.conexion();
                 conexionDB.Open();
@@ -169,7 +196,8 @@ namespace mutualsanjoseesposomaria
                     MySqlCommand comando = new MySqlCommand(sql, conexionDB);
                     if (comando.ExecuteNonQuery() == 1)
                     {
-
+                        borrarerrores();
+                        
                         MessageBox.Show("registro guardado!!");
                     }
                     else
@@ -192,6 +220,12 @@ namespace mutualsanjoseesposomaria
 
                 }
             }
+            else
+            {
+                MessageBox.Show("inserta el valor faltante correspondiente para seguir!!");
+
+            }
+            
         }
         private void pAHOSUNICOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -237,7 +271,7 @@ namespace mutualsanjoseesposomaria
             if(fecha_ingresotxt.Text == "")
             {
                 fecha_ingresotxt.Text = "AAAA/MM/DD";
-                fecha_ingresotxt.ForeColor = Color.DarkGray;
+                fecha_ingresotxt.ForeColor = Color.Gray;
             }
         }
 
@@ -280,10 +314,7 @@ namespace mutualsanjoseesposomaria
             benf.Show();
         }
 
-        private void sToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
 
         private void idtxt_Validating(object sender, CancelEventArgs e)
         {
@@ -298,34 +329,9 @@ namespace mutualsanjoseesposomaria
             }
         }
 
-        private void edadtxt_Validating(object sender, CancelEventArgs e)
-        {
-            int num;
-            if (!int.TryParse(edadtxt.Text, out num))
-            {
-                errorProvider1.SetError(edadtxt, "Ingrese numero de edad");
-            }
-            else
-            {
-                errorProvider1.SetError(edadtxt,"");
+      
 
-            }
-
-        }
-
-        private void numero_casatxt_Validating(object sender, CancelEventArgs e)
-        {
-            int num;
-            if (!int.TryParse(numero_casatxt.Text, out num))
-            {
-                errorProvider1.SetError(numero_casatxt, "Ingrese numero de casa");
-            }
-            else
-            {
-                errorProvider1.SetError(numero_casatxt, "");
-
-            }
-        }
+        
 
         private void telefonotxt_Validating(object sender, CancelEventArgs e)
         {
@@ -367,18 +373,7 @@ namespace mutualsanjoseesposomaria
             }
         }
 
-        private void edadtxt_Validated(object sender, EventArgs e)
-        {
-            if (edadtxt.Text.Trim() == "")
-            {
-                errorProvider1.SetError(edadtxt, "Introduce un numero");
-                edadtxt.Focus();
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-        }
+       
 
         private void idtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -400,26 +395,7 @@ namespace mutualsanjoseesposomaria
             }
         }
 
-        private void edadtxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsNumber(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-
-            if (e.KeyChar == (char)13)
-            {
-            }
-        }
-
+      
         private void numero_casatxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsNumber(e.KeyChar))
@@ -459,6 +435,14 @@ namespace mutualsanjoseesposomaria
             {
             }
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+            Application.Exit();
+        }
+
+     
     }
 }
 

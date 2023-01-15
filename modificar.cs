@@ -313,94 +313,7 @@ namespace mutualsanjoseesposomaria
                 
             }
         }
-        private void limpianucasa()
-        {
-            idtxt.Clear();
-            numerocasatxt.Clear();
-            nuevonuemerocasatxt.Clear();
-        }
-        private void borranucasa()
-        {
-            errorProvider1.SetError(idtxt, "");
-            errorProvider1.SetError(nuevonuemerocasatxt, "");
-            errorProvider1.SetError(numerocasatxt, "");
-        }
-        private bool validanucasa()
-
-        {
-            bool ok = true;
-            if (idtxt.Text == "")
-            {
-                ok = false;
-                errorProvider1.SetError(idtxt, "ingresa el numero de socio actual");
-            }
-            if (nuevonuemerocasatxt.Text == "")
-            {
-                ok = false;
-                errorProvider1.SetError(nuevonuemerocasatxt, "ingresa el nuevo numero de casa del socio");
-            }
-            if (numerocasatxt.Text == "")
-            {
-                ok = false;
-                errorProvider1.SetError(numerocasatxt, "ingresa el actual numero de casa del socio");
-            }
-
-            return ok;
-        }
-
-        private void numerocasa_Click(object sender, EventArgs e)
-        {   
-          //  int numerodesocioviejo = int.Parse(idtxt.Text);
-            
-         //   int viejonumerodecasa = int.Parse(numerocasatxt.Text);
-         //   int nuevonumerodecasa = int.Parse(nuevonuemerocasatxt.Text);
-            if (validanucasa())
-            {
-
-
-                string modificar = "update socios SET numero =  '" + nuevonuemerocasatxt.Text + "' WHERE id = '" + idtxt.Text + "' AND numero = '" + numerocasatxt.Text + "'  ";
-
-                MySqlConnection conexionDB = Conexion.conexion();
-                conexionDB.Open();
-
-                try
-                {
-
-                    MySqlCommand comando = new MySqlCommand(modificar, conexionDB);
-                    comando.ExecuteNonQuery();
-                    if (comando.ExecuteNonQuery() == 1)
-                    {
-                        MessageBox.Show("registro actulizado");
-                        limpianucasa();
-                        borranucasa();
-                    }
-
-                    else
-                    {
-                        MessageBox.Show("nesario poner numero de socio al cual hace el cambio");
-                        MessageBox.Show("ó");
-                        MessageBox.Show("error en sintaxis o es el mismo dato");
-                    }
-
-                }
-                catch (MySqlException ex)
-                {
-
-                    MessageBox.Show("Error al ACTUALIZAR" + ex.Message);
-
-
-                }
-                finally
-                {
-
-                    conexionDB.Close();
-
-                }
-            }else
-            {
-                MessageBox.Show("hay campos faltantes de rellenar");
-            }
-        }
+       
 
         private void limpiatelef()
         {
@@ -1011,7 +924,7 @@ namespace mutualsanjoseesposomaria
                 viejoestadoctx.Text = "NINGUNO";
             }
 
-            if(nuevovigenciactx.Text == "FALLECIDO")
+            if((nuevovigenciactx.Text == "FALLECIDO") || (nuevovigenciactx.Text == "BAJA"))
             {
                 nuevovigenciactx.Text = "NINGUNO";
 
@@ -1316,6 +1229,181 @@ namespace mutualsanjoseesposomaria
 
             if (e.KeyChar == (char)13)
             {
+            }
+        }
+
+        private void limpiacolonia()
+        {
+            viejocoloniatxb.Clear();
+            idtxt.Clear();
+            nuevocoloniatxb.Clear();
+        }
+        private void borrarcolonia()
+        {
+            errorProvider1.SetError(viejocoloniatxb, "");
+            errorProvider1.SetError(nuevocoloniatxb, "");
+            errorProvider1.SetError(idtxt, "");
+
+        }
+        private bool validationcolonia()
+        {
+            bool ok = true;
+            if (idtxt.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(idtxt, "Ingresa el numero socio del actual");
+            }
+            if (nuevocoloniatxb.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(nuevocoloniatxb, "Ingresa la nueva colonia del socio ");
+            }
+            if (viejocoloniatxb.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(viejocoloniatxb, "Ingresa la colonia del socio ");
+            }
+            return ok;
+        }
+        private void coloniabutton_Click(object sender, EventArgs e)
+        {
+            if (validationcolonia())
+            {
+            int Viejonumsocio = int.Parse(idtxt.Text);
+            string Viejocolonia = viejocoloniatxb.Text;
+            string Nuevacolonia = nuevocoloniatxb.Text;
+
+
+                string modificar = "update socios SET colonia =  '" + Nuevacolonia + "' WHERE colonia = '" + Viejocolonia + "' AND id = '" + Viejonumsocio + "' ";
+
+                MySqlConnection conexionDB = Conexion.conexion();
+                conexionDB.Open();
+
+                try
+                {
+
+                    MySqlCommand comando = new MySqlCommand(modificar, conexionDB);
+
+                    if (comando.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("registro actulizado");
+                        borrarcolonia();
+                        limpiacolonia();
+                    }
+                    else
+                    {
+                        MessageBox.Show("nesario poner numero de socio al cual hace el cambio");
+                        MessageBox.Show("ó");
+                        MessageBox.Show("error en sintaxis o es el mismo dato");
+
+                    }
+
+                }
+                catch (MySqlException ex)
+                {
+
+                    MessageBox.Show("Error al actulizar" + ex.Message);
+
+
+                }
+                finally
+                {
+
+                    conexionDB.Close();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Faltan Datos por Rellenar");
+            }
+        }
+
+
+        private void limpiaobserva()
+        {
+            viejoobsertxb.Clear();
+            idtxt.Clear();
+            nuevoobservatxb.Clear();
+        }
+        private void borrarobser()
+        {
+            errorProvider1.SetError(viejoobsertxb, "");
+            errorProvider1.SetError(nuevoobservatxb, "");
+            errorProvider1.SetError(idtxt, "");
+
+        }
+        private bool validationobserva()
+        {
+            bool ok = true;
+            if (idtxt.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(idtxt, "Ingresa el numero socio del al que modificara");
+            }
+            if (nuevoobservatxb.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(nuevoobservatxb, "Ingresa la nueva observacion del socio ");
+            }
+            if (viejoobsertxb.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(viejoobsertxb, "Ingresa la vieja del socio ");
+            }
+            return ok;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (validationobserva())
+            {
+                int Viejonumsocio = int.Parse(idtxt.Text);
+                string Viejoobserva = viejoobsertxb.Text;
+                string Nuevaobserva = nuevoobservatxb.Text;
+
+
+                string modificar = "update socios SET observaciones =  '" + Nuevaobserva + "' WHERE observaciones = '" + Viejoobserva + "' AND id = '" + Viejonumsocio + "' ";
+
+                MySqlConnection conexionDB = Conexion.conexion();
+                conexionDB.Open();
+
+                try
+                {
+
+                    MySqlCommand comando = new MySqlCommand(modificar, conexionDB);
+
+                    if (comando.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("registro actulizado");
+                        borrarobser();
+                        limpiaobserva();
+                    }
+                    else
+                    {
+                        MessageBox.Show("nesario poner numero de socio al cual hace el cambio");
+                        MessageBox.Show("ó");
+                        MessageBox.Show("error en sintaxis o es el mismo dato");
+
+                    }
+
+                }
+                catch (MySqlException ex)
+                {
+
+                    MessageBox.Show("Error al actulizar" + ex.Message);
+
+
+                }
+                finally
+                {
+
+                    conexionDB.Close();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Faltan Datos por Rellenar");
             }
         }
     }

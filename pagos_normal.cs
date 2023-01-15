@@ -22,7 +22,7 @@ namespace mutualsanjoseesposomaria
         private void pagos_normal_Load(object sender, EventArgs e)
         {
             DataTable datatable = new DataTable();
-            string query = "SELECT socios.id as numero_de_socio, socios.nombre,apellido,sexo,fecha_ingreso,ciudad,calle,numero,telefono,edad,fecha_naciento,tipo_s.nombre as tipo_pago FROM socios,tipo_s WHERE socios.tipo_p = tipo_s.id AND tipo_s.nombre = 'PAGO NORMAL';";
+            string query = "SELECT socios.id as numero_de_socio, socios.nombre,apellido,sexo,fecha_ingreso,ciudad,colonia,calle,telefono,edad,fecha_naciento,tipo_s.nombre as tipo_pago ,socios.observaciones FROM socios,tipo_s WHERE socios.tipo_p = tipo_s.id AND tipo_s.nombre = 'PAGO NORMAL'";
 
             MySqlConnection conexionDB = Conexion.conexion();
             MySqlDataReader resultado;
@@ -42,7 +42,7 @@ namespace mutualsanjoseesposomaria
             catch (MySqlException ex)
             {
 
-                MessageBox.Show("Error al guardar" + ex.Message);
+                MessageBox.Show("Error al mostrar" + ex.Message);
 
 
             }
@@ -84,7 +84,7 @@ namespace mutualsanjoseesposomaria
              
 
                 DataTable datatable = new DataTable();
-                string query = "SELECT socios.id as numero_de_socio, socios.nombre,apellido,sexo,fecha_ingreso,ciudad,calle,numero,telefono,edad,tipo_s.nombre as tipo_pago FROM socios JOIN tipo_s ON socios.tipo_p = tipo_s.id " +
+                string query = "SELECT socios.id as numero_de_socio, socios.nombre,apellido,sexo,fecha_ingreso,ciudad,colonia,calle,telefono,edad,tipo_s.nombre as tipo_pago,socios.observaciones FROM socios JOIN tipo_s ON socios.tipo_p = tipo_s.id " +
                     "WHERE socios.id = '" + busquedatxt.Text + "' AND tipo_s.id = 1 ";
 
                 MySqlConnection conexionDB = Conexion.conexion();
@@ -125,6 +125,45 @@ namespace mutualsanjoseesposomaria
                 }
 
             
+        }
+
+        private void apellidotxbPN_TextChanged(object sender, EventArgs e)
+        {
+
+            
+
+            DataTable datatable = new DataTable();
+            string query = "SELECT socios.id as numero_de_socio, socios.nombre,apellido,sexo,fecha_ingreso,ciudad,colonia,calle,telefono,edad,tipo_s.nombre as tipo_pago, socios.observaciones FROM socios JOIN tipo_s ON socios.tipo_p = tipo_s.id " +
+                "WHERE socios.apellido LIKE  '%" + apellidotxbPN.Text + "%' AND tipo_s.id = 1 ";
+
+            MySqlConnection conexionDB = Conexion.conexion();
+            MySqlDataReader resultado;
+            conexionDB.Open();
+
+            try
+            {
+
+                MySqlCommand comando = new MySqlCommand(query, conexionDB);
+                comando.CommandType = CommandType.Text;
+
+                resultado = comando.ExecuteReader();
+                datatable.Load(resultado);
+                dataGridView1.DataSource = datatable;
+              
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show("Error al guardar" + ex.Message);
+
+
+            }
+            finally
+            {
+
+                conexionDB.Close();
+
+            }
         }
     }
 }

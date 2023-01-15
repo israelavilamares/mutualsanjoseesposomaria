@@ -45,6 +45,7 @@ namespace mutualsanjoseesposomaria
             this.REFRESCAR = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.coloniabutton = new System.Windows.Forms.Button();
             this.actulizarvigencia = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.actulizarfecha_ingreso = new System.Windows.Forms.Button();
@@ -52,11 +53,12 @@ namespace mutualsanjoseesposomaria
             this.APELLIDO = new System.Windows.Forms.Button();
             this.tipo_pago = new System.Windows.Forms.Button();
             this.telefono = new System.Windows.Forms.Button();
-            this.numerocasa = new System.Windows.Forms.Button();
             this.ciudad = new System.Windows.Forms.Button();
             this.nombre = new System.Windows.Forms.Button();
             this.numeroid = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.nuevocoloniatxb = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.nuevovigenciactx = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
             this.nuevoedadtxt = new System.Windows.Forms.TextBox();
@@ -65,9 +67,7 @@ namespace mutualsanjoseesposomaria
             this.nuevotipopagotxt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.nuevotelefonotxt = new System.Windows.Forms.TextBox();
-            this.nuevonuemerocasatxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.nuevociudadtxt = new System.Windows.Forms.TextBox();
             this.fecha_ingresonuevotxt = new System.Windows.Forms.TextBox();
             this.nuevosexotxt = new System.Windows.Forms.TextBox();
@@ -81,7 +81,9 @@ namespace mutualsanjoseesposomaria
             this.nuevoidtxt = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.viejocoloniatxb = new System.Windows.Forms.TextBox();
             this.viejoestadoctx = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.viejoedadtxt = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -89,9 +91,7 @@ namespace mutualsanjoseesposomaria
             this.tipo_ptxt = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.telefonotxt = new System.Windows.Forms.TextBox();
-            this.numerocasatxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.ciudadtxt = new System.Windows.Forms.TextBox();
             this.fecha_ingresotxtviejo = new System.Windows.Forms.TextBox();
             this.sexotxt = new System.Windows.Forms.TextBox();
@@ -105,6 +105,11 @@ namespace mutualsanjoseesposomaria
             this.idtxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.nuevoobservatxb = new System.Windows.Forms.RichTextBox();
+            this.viejoobsertxb = new System.Windows.Forms.RichTextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -213,7 +218,7 @@ namespace mutualsanjoseesposomaria
             this.panel6.Controls.Add(this.REFRESCAR);
             this.panel6.Controls.Add(this.dataGridView1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 419);
+            this.panel6.Location = new System.Drawing.Point(0, 423);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1284, 168);
             this.panel6.TabIndex = 43;
@@ -224,7 +229,7 @@ namespace mutualsanjoseesposomaria
             this.REFRESCAR.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.REFRESCAR.ForeColor = System.Drawing.SystemColors.MenuText;
             this.REFRESCAR.Image = global::mutualsanjoseesposomaria.Properties.Resources.descarga__2_;
-            this.REFRESCAR.Location = new System.Drawing.Point(75, 39);
+            this.REFRESCAR.Location = new System.Drawing.Point(12, 37);
             this.REFRESCAR.Name = "REFRESCAR";
             this.REFRESCAR.Size = new System.Drawing.Size(128, 105);
             this.REFRESCAR.TabIndex = 35;
@@ -246,22 +251,24 @@ namespace mutualsanjoseesposomaria
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(219, 24);
+            this.dataGridView1.Location = new System.Drawing.Point(146, 16);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Size = new System.Drawing.Size(1006, 142);
+            this.dataGridView1.Size = new System.Drawing.Size(1079, 150);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.LightCoral;
+            this.panel5.Controls.Add(this.button2);
+            this.panel5.Controls.Add(this.coloniabutton);
             this.panel5.Controls.Add(this.actulizarvigencia);
             this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.actulizarfecha_ingreso);
@@ -269,23 +276,34 @@ namespace mutualsanjoseesposomaria
             this.panel5.Controls.Add(this.APELLIDO);
             this.panel5.Controls.Add(this.tipo_pago);
             this.panel5.Controls.Add(this.telefono);
-            this.panel5.Controls.Add(this.numerocasa);
             this.panel5.Controls.Add(this.ciudad);
             this.panel5.Controls.Add(this.nombre);
             this.panel5.Controls.Add(this.numeroid);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 587);
+            this.panel5.Location = new System.Drawing.Point(0, 591);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1284, 99);
+            this.panel5.Size = new System.Drawing.Size(1284, 95);
             this.panel5.TabIndex = 42;
+            // 
+            // coloniabutton
+            // 
+            this.coloniabutton.BackColor = System.Drawing.Color.DarkSalmon;
+            this.coloniabutton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.coloniabutton.Location = new System.Drawing.Point(1061, 0);
+            this.coloniabutton.Name = "coloniabutton";
+            this.coloniabutton.Size = new System.Drawing.Size(113, 95);
+            this.coloniabutton.TabIndex = 51;
+            this.coloniabutton.Text = "ACTULIZAR COLONIA";
+            this.coloniabutton.UseVisualStyleBackColor = false;
+            this.coloniabutton.Click += new System.EventHandler(this.coloniabutton_Click);
             // 
             // actulizarvigencia
             // 
             this.actulizarvigencia.BackColor = System.Drawing.Color.DarkSalmon;
             this.actulizarvigencia.Dock = System.Windows.Forms.DockStyle.Left;
-            this.actulizarvigencia.Location = new System.Drawing.Point(1031, 0);
+            this.actulizarvigencia.Location = new System.Drawing.Point(933, 0);
             this.actulizarvigencia.Name = "actulizarvigencia";
-            this.actulizarvigencia.Size = new System.Drawing.Size(134, 99);
+            this.actulizarvigencia.Size = new System.Drawing.Size(128, 95);
             this.actulizarvigencia.TabIndex = 50;
             this.actulizarvigencia.Text = "ACTULIZAR VIGENTE/FALLECIDO  SOCIO";
             this.actulizarvigencia.UseVisualStyleBackColor = false;
@@ -295,9 +313,9 @@ namespace mutualsanjoseesposomaria
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSalmon;
             this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.Location = new System.Drawing.Point(927, 0);
+            this.button1.Location = new System.Drawing.Point(829, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 99);
+            this.button1.Size = new System.Drawing.Size(104, 95);
             this.button1.TabIndex = 49;
             this.button1.Text = "ACTULIZAR EDAD  SOCIO";
             this.button1.UseVisualStyleBackColor = false;
@@ -307,9 +325,9 @@ namespace mutualsanjoseesposomaria
             // 
             this.actulizarfecha_ingreso.BackColor = System.Drawing.Color.DarkSalmon;
             this.actulizarfecha_ingreso.Dock = System.Windows.Forms.DockStyle.Left;
-            this.actulizarfecha_ingreso.Location = new System.Drawing.Point(821, 0);
+            this.actulizarfecha_ingreso.Location = new System.Drawing.Point(723, 0);
             this.actulizarfecha_ingreso.Name = "actulizarfecha_ingreso";
-            this.actulizarfecha_ingreso.Size = new System.Drawing.Size(106, 99);
+            this.actulizarfecha_ingreso.Size = new System.Drawing.Size(106, 95);
             this.actulizarfecha_ingreso.TabIndex = 48;
             this.actulizarfecha_ingreso.Text = "ACTULIZAR FECHA INGRESO  SOCIO";
             this.actulizarfecha_ingreso.UseVisualStyleBackColor = false;
@@ -319,9 +337,9 @@ namespace mutualsanjoseesposomaria
             // 
             this.actulizarsexo.BackColor = System.Drawing.Color.DarkSalmon;
             this.actulizarsexo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.actulizarsexo.Location = new System.Drawing.Point(720, 0);
+            this.actulizarsexo.Location = new System.Drawing.Point(628, 0);
             this.actulizarsexo.Name = "actulizarsexo";
-            this.actulizarsexo.Size = new System.Drawing.Size(101, 99);
+            this.actulizarsexo.Size = new System.Drawing.Size(95, 95);
             this.actulizarsexo.TabIndex = 47;
             this.actulizarsexo.Text = "ACTULIZAR SEXO  SOCIO";
             this.actulizarsexo.UseVisualStyleBackColor = false;
@@ -331,9 +349,9 @@ namespace mutualsanjoseesposomaria
             // 
             this.APELLIDO.BackColor = System.Drawing.Color.DarkSalmon;
             this.APELLIDO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.APELLIDO.Location = new System.Drawing.Point(610, 0);
+            this.APELLIDO.Location = new System.Drawing.Point(518, 0);
             this.APELLIDO.Name = "APELLIDO";
-            this.APELLIDO.Size = new System.Drawing.Size(110, 99);
+            this.APELLIDO.Size = new System.Drawing.Size(110, 95);
             this.APELLIDO.TabIndex = 46;
             this.APELLIDO.Text = "ACTULIZAR APELLDO  SOCIO";
             this.APELLIDO.UseVisualStyleBackColor = false;
@@ -343,9 +361,9 @@ namespace mutualsanjoseesposomaria
             // 
             this.tipo_pago.BackColor = System.Drawing.Color.DarkSalmon;
             this.tipo_pago.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tipo_pago.Location = new System.Drawing.Point(504, 0);
+            this.tipo_pago.Location = new System.Drawing.Point(412, 0);
             this.tipo_pago.Name = "tipo_pago";
-            this.tipo_pago.Size = new System.Drawing.Size(106, 99);
+            this.tipo_pago.Size = new System.Drawing.Size(106, 95);
             this.tipo_pago.TabIndex = 45;
             this.tipo_pago.Text = "ACTULIZAR TIPO PAGO SOCIO";
             this.tipo_pago.UseVisualStyleBackColor = false;
@@ -355,25 +373,13 @@ namespace mutualsanjoseesposomaria
             // 
             this.telefono.BackColor = System.Drawing.Color.DarkSalmon;
             this.telefono.Dock = System.Windows.Forms.DockStyle.Left;
-            this.telefono.Location = new System.Drawing.Point(411, 0);
+            this.telefono.Location = new System.Drawing.Point(319, 0);
             this.telefono.Name = "telefono";
-            this.telefono.Size = new System.Drawing.Size(93, 99);
+            this.telefono.Size = new System.Drawing.Size(93, 95);
             this.telefono.TabIndex = 44;
             this.telefono.Text = "ACTULIZAR TELEFONO SOCIO";
             this.telefono.UseVisualStyleBackColor = false;
             this.telefono.Click += new System.EventHandler(this.telefono_Click);
-            // 
-            // numerocasa
-            // 
-            this.numerocasa.BackColor = System.Drawing.Color.DarkSalmon;
-            this.numerocasa.Dock = System.Windows.Forms.DockStyle.Left;
-            this.numerocasa.Location = new System.Drawing.Point(319, 0);
-            this.numerocasa.Name = "numerocasa";
-            this.numerocasa.Size = new System.Drawing.Size(92, 99);
-            this.numerocasa.TabIndex = 43;
-            this.numerocasa.Text = "ACTULIZAR NUMERO CASA SOCIO";
-            this.numerocasa.UseVisualStyleBackColor = false;
-            this.numerocasa.Click += new System.EventHandler(this.numerocasa_Click);
             // 
             // ciudad
             // 
@@ -381,7 +387,7 @@ namespace mutualsanjoseesposomaria
             this.ciudad.Dock = System.Windows.Forms.DockStyle.Left;
             this.ciudad.Location = new System.Drawing.Point(210, 0);
             this.ciudad.Name = "ciudad";
-            this.ciudad.Size = new System.Drawing.Size(109, 99);
+            this.ciudad.Size = new System.Drawing.Size(109, 95);
             this.ciudad.TabIndex = 42;
             this.ciudad.Text = "ACTULIZAR CIUDAD SOCIO";
             this.ciudad.UseVisualStyleBackColor = false;
@@ -393,7 +399,7 @@ namespace mutualsanjoseesposomaria
             this.nombre.Dock = System.Windows.Forms.DockStyle.Left;
             this.nombre.Location = new System.Drawing.Point(102, 0);
             this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(108, 99);
+            this.nombre.Size = new System.Drawing.Size(108, 95);
             this.nombre.TabIndex = 41;
             this.nombre.Text = "ACTULIZAR NOMBRE  SOCIO";
             this.nombre.UseVisualStyleBackColor = false;
@@ -405,7 +411,7 @@ namespace mutualsanjoseesposomaria
             this.numeroid.Dock = System.Windows.Forms.DockStyle.Left;
             this.numeroid.Location = new System.Drawing.Point(0, 0);
             this.numeroid.Name = "numeroid";
-            this.numeroid.Size = new System.Drawing.Size(102, 99);
+            this.numeroid.Size = new System.Drawing.Size(102, 95);
             this.numeroid.TabIndex = 40;
             this.numeroid.Text = "ACTULIZAR NUM. SOCIO";
             this.numeroid.UseVisualStyleBackColor = false;
@@ -414,6 +420,10 @@ namespace mutualsanjoseesposomaria
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.LightCoral;
+            this.panel4.Controls.Add(this.nuevoobservatxb);
+            this.panel4.Controls.Add(this.label13);
+            this.panel4.Controls.Add(this.nuevocoloniatxb);
+            this.panel4.Controls.Add(this.label28);
             this.panel4.Controls.Add(this.nuevovigenciactx);
             this.panel4.Controls.Add(this.label25);
             this.panel4.Controls.Add(this.nuevoedadtxt);
@@ -422,9 +432,7 @@ namespace mutualsanjoseesposomaria
             this.panel4.Controls.Add(this.nuevotipopagotxt);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.nuevotelefonotxt);
-            this.panel4.Controls.Add(this.nuevonuemerocasatxt);
             this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.nuevociudadtxt);
             this.panel4.Controls.Add(this.fecha_ingresonuevotxt);
             this.panel4.Controls.Add(this.nuevosexotxt);
@@ -437,10 +445,32 @@ namespace mutualsanjoseesposomaria
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.nuevoidtxt);
             this.panel4.Controls.Add(this.label19);
-            this.panel4.Location = new System.Drawing.Point(684, 27);
+            this.panel4.Location = new System.Drawing.Point(684, 6);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(588, 362);
+            this.panel4.Size = new System.Drawing.Size(588, 411);
             this.panel4.TabIndex = 39;
+            // 
+            // nuevocoloniatxb
+            // 
+            this.nuevocoloniatxb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nuevocoloniatxb.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.nuevocoloniatxb.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nuevocoloniatxb.Location = new System.Drawing.Point(184, 369);
+            this.nuevocoloniatxb.Name = "nuevocoloniatxb";
+            this.nuevocoloniatxb.Size = new System.Drawing.Size(120, 26);
+            this.nuevocoloniatxb.TabIndex = 47;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(34, 377);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(76, 18);
+            this.label28.TabIndex = 46;
+            this.label28.Text = "COLONIA";
             // 
             // nuevovigenciactx
             // 
@@ -449,7 +479,7 @@ namespace mutualsanjoseesposomaria
             "FALLECIDO",
             "VIGENTE",
             "NINGUNO"});
-            this.nuevovigenciactx.Location = new System.Drawing.Point(411, 332);
+            this.nuevovigenciactx.Location = new System.Drawing.Point(403, 282);
             this.nuevovigenciactx.Name = "nuevovigenciactx";
             this.nuevovigenciactx.Size = new System.Drawing.Size(93, 21);
             this.nuevovigenciactx.TabIndex = 45;
@@ -459,7 +489,7 @@ namespace mutualsanjoseesposomaria
             this.label25.AutoSize = true;
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(370, 310);
+            this.label25.Location = new System.Drawing.Point(362, 260);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(175, 19);
             this.label25.TabIndex = 44;
@@ -502,7 +532,7 @@ namespace mutualsanjoseesposomaria
             // 
             // nuevotipopagotxt
             // 
-            this.nuevotipopagotxt.Location = new System.Drawing.Point(424, 278);
+            this.nuevotipopagotxt.Location = new System.Drawing.Point(416, 228);
             this.nuevotipopagotxt.Name = "nuevotipopagotxt";
             this.nuevotipopagotxt.Size = new System.Drawing.Size(54, 20);
             this.nuevotipopagotxt.TabIndex = 38;
@@ -513,7 +543,7 @@ namespace mutualsanjoseesposomaria
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(344, 131);
+            this.label8.Location = new System.Drawing.Point(336, 81);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(201, 133);
             this.label8.TabIndex = 37;
@@ -523,39 +553,20 @@ namespace mutualsanjoseesposomaria
             // nuevotelefonotxt
             // 
             this.nuevotelefonotxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nuevotelefonotxt.Location = new System.Drawing.Point(449, 85);
+            this.nuevotelefonotxt.Location = new System.Drawing.Point(441, 35);
             this.nuevotelefonotxt.Name = "nuevotelefonotxt";
             this.nuevotelefonotxt.Size = new System.Drawing.Size(122, 26);
             this.nuevotelefonotxt.TabIndex = 36;
-            // 
-            // nuevonuemerocasatxt
-            // 
-            this.nuevonuemerocasatxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nuevonuemerocasatxt.Location = new System.Drawing.Point(449, 42);
-            this.nuevonuemerocasatxt.Name = "nuevonuemerocasatxt";
-            this.nuevonuemerocasatxt.Size = new System.Drawing.Size(122, 26);
-            this.nuevonuemerocasatxt.TabIndex = 35;
-            this.nuevonuemerocasatxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nuevonuemerocasatxt_KeyPress);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(359, 89);
+            this.label11.Location = new System.Drawing.Point(351, 39);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 18);
             this.label11.TabIndex = 34;
             this.label11.Text = "TELEFONO";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(306, 42);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(144, 18);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "NUMERO DE CASA";
             // 
             // nuevociudadtxt
             // 
@@ -704,7 +715,11 @@ namespace mutualsanjoseesposomaria
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightCoral;
+            this.panel3.Controls.Add(this.viejoobsertxb);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.viejocoloniatxb);
             this.panel3.Controls.Add(this.viejoestadoctx);
+            this.panel3.Controls.Add(this.label29);
             this.panel3.Controls.Add(this.label24);
             this.panel3.Controls.Add(this.viejoedadtxt);
             this.panel3.Controls.Add(this.label22);
@@ -712,9 +727,7 @@ namespace mutualsanjoseesposomaria
             this.panel3.Controls.Add(this.tipo_ptxt);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.telefonotxt);
-            this.panel3.Controls.Add(this.numerocasatxt);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.ciudadtxt);
             this.panel3.Controls.Add(this.fecha_ingresotxtviejo);
             this.panel3.Controls.Add(this.sexotxt);
@@ -727,10 +740,22 @@ namespace mutualsanjoseesposomaria
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.idtxt);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(21, 20);
+            this.panel3.Location = new System.Drawing.Point(21, 6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(596, 362);
+            this.panel3.Size = new System.Drawing.Size(596, 411);
             this.panel3.TabIndex = 0;
+            // 
+            // viejocoloniatxb
+            // 
+            this.viejocoloniatxb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.viejocoloniatxb.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.viejocoloniatxb.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viejocoloniatxb.Location = new System.Drawing.Point(186, 369);
+            this.viejocoloniatxb.Name = "viejocoloniatxb";
+            this.viejocoloniatxb.Size = new System.Drawing.Size(114, 26);
+            this.viejocoloniatxb.TabIndex = 49;
             // 
             // viejoestadoctx
             // 
@@ -739,17 +764,27 @@ namespace mutualsanjoseesposomaria
             "FALLECIDO",
             "VIGENTE",
             "NINGUNO"});
-            this.viejoestadoctx.Location = new System.Drawing.Point(370, 334);
+            this.viejoestadoctx.Location = new System.Drawing.Point(378, 283);
             this.viejoestadoctx.Name = "viejoestadoctx";
             this.viejoestadoctx.Size = new System.Drawing.Size(93, 21);
             this.viejoestadoctx.TabIndex = 43;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(38, 377);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(76, 18);
+            this.label29.TabIndex = 48;
+            this.label29.Text = "COLONIA";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(331, 312);
+            this.label24.Location = new System.Drawing.Point(339, 261);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(175, 19);
             this.label24.TabIndex = 42;
@@ -793,7 +828,7 @@ namespace mutualsanjoseesposomaria
             // tipo_ptxt
             // 
             this.tipo_ptxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tipo_ptxt.Location = new System.Drawing.Point(380, 274);
+            this.tipo_ptxt.Location = new System.Drawing.Point(388, 223);
             this.tipo_ptxt.Name = "tipo_ptxt";
             this.tipo_ptxt.Size = new System.Drawing.Size(54, 26);
             this.tipo_ptxt.TabIndex = 38;
@@ -804,7 +839,7 @@ namespace mutualsanjoseesposomaria
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(322, 125);
+            this.label12.Location = new System.Drawing.Point(330, 74);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(201, 133);
             this.label12.TabIndex = 37;
@@ -814,39 +849,20 @@ namespace mutualsanjoseesposomaria
             // telefonotxt
             // 
             this.telefonotxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefonotxt.Location = new System.Drawing.Point(460, 79);
+            this.telefonotxt.Location = new System.Drawing.Point(455, 28);
             this.telefonotxt.Name = "telefonotxt";
             this.telefonotxt.Size = new System.Drawing.Size(115, 26);
             this.telefonotxt.TabIndex = 36;
-            // 
-            // numerocasatxt
-            // 
-            this.numerocasatxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numerocasatxt.Location = new System.Drawing.Point(460, 36);
-            this.numerocasatxt.Name = "numerocasatxt";
-            this.numerocasatxt.Size = new System.Drawing.Size(115, 26);
-            this.numerocasatxt.TabIndex = 35;
-            this.numerocasatxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numerocasatxt_KeyPress);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(323, 79);
+            this.label10.Location = new System.Drawing.Point(331, 28);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(91, 18);
             this.label10.TabIndex = 34;
             this.label10.Text = "TELEFONO";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(310, 36);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 18);
-            this.label9.TabIndex = 33;
-            this.label9.Text = "NUMERO DE CASA";
             // 
             // ciudadtxt
             // 
@@ -995,6 +1011,54 @@ namespace mutualsanjoseesposomaria
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(364, 307);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(150, 19);
+            this.label9.TabIndex = 50;
+            this.label9.Text = "OBSERVACIONES";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(379, 307);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(150, 19);
+            this.label13.TabIndex = 51;
+            this.label13.Text = "OBSERVACIONES";
+            // 
+            // nuevoobservatxb
+            // 
+            this.nuevoobservatxb.Location = new System.Drawing.Point(329, 334);
+            this.nuevoobservatxb.Name = "nuevoobservatxb";
+            this.nuevoobservatxb.Size = new System.Drawing.Size(247, 66);
+            this.nuevoobservatxb.TabIndex = 52;
+            this.nuevoobservatxb.Text = "";
+            // 
+            // viejoobsertxb
+            // 
+            this.viejoobsertxb.Location = new System.Drawing.Point(323, 334);
+            this.viejoobsertxb.Name = "viejoobsertxb";
+            this.viejoobsertxb.Size = new System.Drawing.Size(247, 66);
+            this.viejoobsertxb.TabIndex = 53;
+            this.viejoobsertxb.Text = "";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkSalmon;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button2.Location = new System.Drawing.Point(1174, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(113, 95);
+            this.button2.TabIndex = 52;
+            this.button2.Text = "ACTULIZAR OBSERVACIONES";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // modificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1038,9 +1102,7 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox telefonotxt;
-        private System.Windows.Forms.TextBox numerocasatxt;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox ciudadtxt;
         private System.Windows.Forms.TextBox fecha_ingresotxtviejo;
         private System.Windows.Forms.TextBox sexotxt;
@@ -1057,9 +1119,7 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.TextBox nuevotipopagotxt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox nuevotelefonotxt;
-        private System.Windows.Forms.TextBox nuevonuemerocasatxt;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox nuevociudadtxt;
         private System.Windows.Forms.TextBox fecha_ingresonuevotxt;
         private System.Windows.Forms.TextBox nuevosexotxt;
@@ -1078,7 +1138,6 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.Button numeroid;
         private System.Windows.Forms.Button tipo_pago;
         private System.Windows.Forms.Button telefono;
-        private System.Windows.Forms.Button numerocasa;
         private System.Windows.Forms.Button ciudad;
         private System.Windows.Forms.Button nombre;
         private System.Windows.Forms.Label label21;
@@ -1102,5 +1161,15 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button coloniabutton;
+        private System.Windows.Forms.TextBox nuevocoloniatxb;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox viejocoloniatxb;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox nuevoobservatxb;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.RichTextBox viejoobsertxb;
+        private System.Windows.Forms.Label label9;
     }
 }

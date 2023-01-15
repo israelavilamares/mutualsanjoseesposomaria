@@ -42,6 +42,8 @@ namespace mutualsanjoseesposomaria
             this.busquedatxt = new System.Windows.Forms.TextBox();
             this.busca = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.apellidotxb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -114,6 +116,8 @@ namespace mutualsanjoseesposomaria
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightCoral;
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.apellidotxb);
             this.panel3.Controls.Add(this.busquedatxt);
             this.panel3.Controls.Add(this.busca);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -155,6 +159,27 @@ namespace mutualsanjoseesposomaria
             this.panel1.Size = new System.Drawing.Size(800, 371);
             this.panel1.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "APELLIDO";
+            // 
+            // apellidotxb
+            // 
+            this.apellidotxb.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.apellidotxb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apellidotxb.ForeColor = System.Drawing.Color.Gray;
+            this.apellidotxb.Location = new System.Drawing.Point(95, 19);
+            this.apellidotxb.Name = "apellidotxb";
+            this.apellidotxb.Size = new System.Drawing.Size(120, 26);
+            this.apellidotxb.TabIndex = 8;
+            this.apellidotxb.TextChanged += new System.EventHandler(this.apellidotxb_TextChanged);
+            // 
             // pagosunicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,5 +214,7 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox busquedatxt;
         private System.Windows.Forms.Button busca;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox apellidotxb;
     }
 }

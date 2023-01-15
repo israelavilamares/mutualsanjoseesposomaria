@@ -29,11 +29,18 @@ namespace mutualsanjoseesposomaria
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.contartpntxt = new System.Windows.Forms.TextBox();
+            this.apellidotxbPN = new System.Windows.Forms.TextBox();
+            this.contar = new System.Windows.Forms.Button();
+            this.observacionestxt = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.nombrequinfacturatxt = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,16 +59,22 @@ namespace mutualsanjoseesposomaria
             this.idpagonormal = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.observacionestxt = new System.Windows.Forms.RichTextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.exportpu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightCoral;
+            this.panel1.Controls.Add(this.exportpu);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.contartpntxt);
+            this.panel1.Controls.Add(this.apellidotxbPN);
+            this.panel1.Controls.Add(this.contar);
             this.panel1.Controls.Add(this.observacionestxt);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.nombrequinfacturatxt);
@@ -83,21 +96,81 @@ namespace mutualsanjoseesposomaria
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1174, 590);
+            this.panel1.Size = new System.Drawing.Size(1199, 601);
             this.panel1.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(900, 369);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 24);
+            this.label8.TabIndex = 96;
+            this.label8.Text = "APELLIDO";
+            // 
+            // contartpntxt
+            // 
+            this.contartpntxt.Enabled = false;
+            this.contartpntxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contartpntxt.ForeColor = System.Drawing.Color.Gray;
+            this.contartpntxt.Location = new System.Drawing.Point(384, 367);
+            this.contartpntxt.Name = "contartpntxt";
+            this.contartpntxt.Size = new System.Drawing.Size(120, 26);
+            this.contartpntxt.TabIndex = 96;
+            // 
+            // apellidotxbPN
+            // 
+            this.apellidotxbPN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.apellidotxbPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apellidotxbPN.ForeColor = System.Drawing.Color.Black;
+            this.apellidotxbPN.Location = new System.Drawing.Point(1006, 364);
+            this.apellidotxbPN.Name = "apellidotxbPN";
+            this.apellidotxbPN.Size = new System.Drawing.Size(134, 29);
+            this.apellidotxbPN.TabIndex = 95;
+            this.apellidotxbPN.TextChanged += new System.EventHandler(this.apellidotxbPN_TextChanged);
+            // 
+            // contar
+            // 
+            this.contar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contar.Location = new System.Drawing.Point(510, 359);
+            this.contar.Name = "contar";
+            this.contar.Size = new System.Drawing.Size(136, 34);
+            this.contar.TabIndex = 95;
+            this.contar.Text = "TOTAL FACTURAS";
+            this.contar.UseVisualStyleBackColor = true;
+            this.contar.Click += new System.EventHandler(this.contar_Click);
+            // 
+            // observacionestxt
+            // 
+            this.observacionestxt.Location = new System.Drawing.Point(929, 154);
+            this.observacionestxt.Name = "observacionestxt";
+            this.observacionestxt.Size = new System.Drawing.Size(267, 169);
+            this.observacionestxt.TabIndex = 83;
+            this.observacionestxt.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(990, 132);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 19);
+            this.label3.TabIndex = 82;
+            this.label3.Text = "OBSERVACIONES";
             // 
             // nombrequinfacturatxt
             // 
             this.nombrequinfacturatxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.nombrequinfacturatxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombrequinfacturatxt.ForeColor = System.Drawing.Color.Gray;
-            this.nombrequinfacturatxt.Location = new System.Drawing.Point(460, 284);
+            this.nombrequinfacturatxt.Location = new System.Drawing.Point(467, 265);
             this.nombrequinfacturatxt.Name = "nombrequinfacturatxt";
             this.nombrequinfacturatxt.Size = new System.Drawing.Size(224, 26);
             this.nombrequinfacturatxt.TabIndex = 81;
             this.nombrequinfacturatxt.Text = "NOMBRE QUIEN FACTURA";
-            this.nombrequinfacturatxt.Enter += new System.EventHandler(this.nombrequinfacturatxt_Enter);
-            this.nombrequinfacturatxt.Leave += new System.EventHandler(this.nombrequinfacturatxt_Leave);
+            this.nombrequinfacturatxt.Enter += new System.EventHandler(this.nombrequinfacturatxt_Enter_1);
+            this.nombrequinfacturatxt.Leave += new System.EventHandler(this.nombrequinfacturatxt_Leave_1);
             // 
             // dateTimePicker1
             // 
@@ -106,7 +179,7 @@ namespace mutualsanjoseesposomaria
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(1174, 29);
+            this.dateTimePicker1.Size = new System.Drawing.Size(1199, 29);
             this.dateTimePicker1.TabIndex = 37;
             // 
             // button1
@@ -129,7 +202,7 @@ namespace mutualsanjoseesposomaria
             this.eliminarnumerofacturatxt.ForeColor = System.Drawing.Color.DarkGray;
             this.eliminarnumerofacturatxt.Location = new System.Drawing.Point(668, 187);
             this.eliminarnumerofacturatxt.Name = "eliminarnumerofacturatxt";
-            this.eliminarnumerofacturatxt.Size = new System.Drawing.Size(160, 26);
+            this.eliminarnumerofacturatxt.Size = new System.Drawing.Size(178, 26);
             this.eliminarnumerofacturatxt.TabIndex = 14;
             this.eliminarnumerofacturatxt.Text = "NUMERO FACTURA";
             this.eliminarnumerofacturatxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -146,7 +219,7 @@ namespace mutualsanjoseesposomaria
             this.eliminanumerofactura.TabIndex = 13;
             this.eliminanumerofactura.Text = "ELIMINAR SOLO UN PAGO";
             this.eliminanumerofactura.UseVisualStyleBackColor = false;
-            this.eliminanumerofactura.Click += new System.EventHandler(this.eliminanumerofactura_Click);
+            this.eliminanumerofactura.Click += new System.EventHandler(this.eliminanumerofactura_Click_1);
             // 
             // numerosocioeliminartxt
             // 
@@ -154,9 +227,9 @@ namespace mutualsanjoseesposomaria
             this.numerosocioeliminartxt.ForeColor = System.Drawing.Color.DarkGray;
             this.numerosocioeliminartxt.Location = new System.Drawing.Point(668, 84);
             this.numerosocioeliminartxt.Name = "numerosocioeliminartxt";
-            this.numerosocioeliminartxt.Size = new System.Drawing.Size(219, 26);
+            this.numerosocioeliminartxt.Size = new System.Drawing.Size(178, 26);
             this.numerosocioeliminartxt.TabIndex = 12;
-            this.numerosocioeliminartxt.Text = "NUMERO PAGO DEL SOCIO";
+            this.numerosocioeliminartxt.Text = "NUMERO DEL SOCIO";
             this.numerosocioeliminartxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numerosocioeliminartxt.Enter += new System.EventHandler(this.numerosocioeliminartxt_Enter);
             this.numerosocioeliminartxt.Leave += new System.EventHandler(this.numerosocioeliminartxt_Leave);
@@ -190,7 +263,7 @@ namespace mutualsanjoseesposomaria
             // 
             this.miperimerpago.BackColor = System.Drawing.Color.Brown;
             this.miperimerpago.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.miperimerpago.Location = new System.Drawing.Point(278, 298);
+            this.miperimerpago.Location = new System.Drawing.Point(266, 298);
             this.miperimerpago.Name = "miperimerpago";
             this.miperimerpago.Size = new System.Drawing.Size(96, 69);
             this.miperimerpago.TabIndex = 9;
@@ -220,6 +293,7 @@ namespace mutualsanjoseesposomaria
             // 
             // fechatxt
             // 
+            this.fechatxt.Cursor = System.Windows.Forms.Cursors.No;
             this.fechatxt.Enabled = false;
             this.fechatxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechatxt.ForeColor = System.Drawing.Color.DarkGray;
@@ -276,7 +350,7 @@ namespace mutualsanjoseesposomaria
             this.idpagonormal.Name = "idpagonormal";
             this.idpagonormal.Size = new System.Drawing.Size(224, 26);
             this.idpagonormal.TabIndex = 0;
-            this.idpagonormal.Text = "NUMERO PAGO DEL SOCIO";
+            this.idpagonormal.Text = "NUMERO DEL SOCIO";
             this.idpagonormal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.idpagonormal.Enter += new System.EventHandler(this.idpagonormal_Enter);
             this.idpagonormal.Leave += new System.EventHandler(this.idpagonormal_Leave);
@@ -285,9 +359,9 @@ namespace mutualsanjoseesposomaria
             // 
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 392);
+            this.panel2.Location = new System.Drawing.Point(0, 403);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1174, 198);
+            this.panel2.Size = new System.Drawing.Size(1199, 198);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -324,32 +398,35 @@ namespace mutualsanjoseesposomaria
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.Size = new System.Drawing.Size(1174, 195);
+            this.dataGridView1.Size = new System.Drawing.Size(1199, 195);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label3
+            // errorProvider1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(956, 142);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 19);
-            this.label3.TabIndex = 82;
-            this.label3.Text = "OBSERVACIONES";
+            this.errorProvider1.ContainerControl = this;
             // 
-            // observacionestxt
+            // exportpu
             // 
-            this.observacionestxt.Location = new System.Drawing.Point(895, 164);
-            this.observacionestxt.Name = "observacionestxt";
-            this.observacionestxt.Size = new System.Drawing.Size(267, 169);
-            this.observacionestxt.TabIndex = 83;
-            this.observacionestxt.Text = "";
+            this.exportpu.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.exportpu.FlatAppearance.BorderSize = 3;
+            this.exportpu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.exportpu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.exportpu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportpu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.exportpu.Location = new System.Drawing.Point(705, 339);
+            this.exportpu.Name = "exportpu";
+            this.exportpu.Size = new System.Drawing.Size(162, 54);
+            this.exportpu.TabIndex = 100;
+            this.exportpu.Text = "EXPORTAR EXCEL";
+            this.exportpu.UseVisualStyleBackColor = true;
+            this.exportpu.Click += new System.EventHandler(this.exportpu_Click);
             // 
             // seguimientopagonormal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1174, 590);
+            this.ClientSize = new System.Drawing.Size(1199, 601);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "seguimientopagonormal";
@@ -359,6 +436,7 @@ namespace mutualsanjoseesposomaria
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,5 +464,11 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.TextBox nombrequinfacturatxt;
         private System.Windows.Forms.RichTextBox observacionestxt;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox contartpntxt;
+        private System.Windows.Forms.Button contar;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox apellidotxbPN;
+        private System.Windows.Forms.Button exportpu;
     }
 }

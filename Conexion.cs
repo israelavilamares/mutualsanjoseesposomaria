@@ -14,7 +14,7 @@ namespace mutualsanjoseesposomaria
             string servidor = "localhost";
             string bd = "mutualsanjose";
             string usuario = "root";
-            string password = "mutual";
+            string password = "";
 
             string cadenaConexion = "Database=" + bd + "; Data Source=" + servidor + "; User Id= " + usuario + "; Password=" + password + "";
             try
@@ -26,6 +26,7 @@ namespace mutualsanjoseesposomaria
             catch (MySqlException ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+               
                 return null;
             }
         }

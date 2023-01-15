@@ -49,8 +49,6 @@ namespace mutualsanjoseesposomaria
             this.fecha_ingresotxt = new System.Windows.Forms.TextBox();
             this.ciudadtxt = new System.Windows.Forms.TextBox();
             this.calletxt = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.numero_casatxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.telefonotxt = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -69,7 +67,6 @@ namespace mutualsanjoseesposomaria
             this.tODOSLOSPAGOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pAGOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bENEFICIARIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cONSULTAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.edadtxt = new System.Windows.Forms.TextBox();
@@ -80,6 +77,10 @@ namespace mutualsanjoseesposomaria
             this.label13 = new System.Windows.Forms.Label();
             this.estadoctx = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.coloniatxb = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.observacionestxb = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -92,7 +93,7 @@ namespace mutualsanjoseesposomaria
             this.agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.agregar.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregar.Location = new System.Drawing.Point(608, 553);
+            this.agregar.Location = new System.Drawing.Point(608, 580);
             this.agregar.Name = "agregar";
             this.agregar.Size = new System.Drawing.Size(89, 82);
             this.agregar.TabIndex = 0;
@@ -164,7 +165,7 @@ namespace mutualsanjoseesposomaria
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 408);
+            this.label5.Location = new System.Drawing.Point(2, 410);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(169, 19);
             this.label5.TabIndex = 6;
@@ -208,9 +209,9 @@ namespace mutualsanjoseesposomaria
             this.dateTimePicker1.CalendarForeColor = System.Drawing.SystemColors.HotTrack;
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(0, 641);
+            this.dateTimePicker1.Location = new System.Drawing.Point(0, 668);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(823, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(852, 26);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // limpiar
@@ -220,7 +221,7 @@ namespace mutualsanjoseesposomaria
             this.limpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.limpiar.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.limpiar.Location = new System.Drawing.Point(720, 553);
+            this.limpiar.Location = new System.Drawing.Point(720, 580);
             this.limpiar.Name = "limpiar";
             this.limpiar.Size = new System.Drawing.Size(91, 82);
             this.limpiar.TabIndex = 11;
@@ -259,15 +260,15 @@ namespace mutualsanjoseesposomaria
             // 
             this.fecha_ingresotxt.AccessibleDescription = "";
             this.fecha_ingresotxt.AccessibleName = "";
-            this.fecha_ingresotxt.Enabled = false;
             this.fecha_ingresotxt.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_ingresotxt.ForeColor = System.Drawing.Color.DarkGray;
+            this.fecha_ingresotxt.ForeColor = System.Drawing.Color.Gray;
             this.fecha_ingresotxt.Location = new System.Drawing.Point(178, 404);
             this.fecha_ingresotxt.Name = "fecha_ingresotxt";
             this.fecha_ingresotxt.Size = new System.Drawing.Size(136, 25);
             this.fecha_ingresotxt.TabIndex = 15;
             this.fecha_ingresotxt.Tag = "";
-            this.fecha_ingresotxt.Text = "FECHA AUTOMATICA";
+            this.fecha_ingresotxt.Text = "AAAA/MM/DD";
+            this.fecha_ingresotxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.fecha_ingresotxt.Enter += new System.EventHandler(this.fecha_ingresotxt_Enter);
             this.fecha_ingresotxt.Leave += new System.EventHandler(this.fecha_ingresotxt_Leave);
             // 
@@ -289,33 +290,12 @@ namespace mutualsanjoseesposomaria
             this.calletxt.Size = new System.Drawing.Size(126, 25);
             this.calletxt.TabIndex = 17;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Gainsboro;
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(292, 127);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(157, 19);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "NUMERO DE CASA";
-            // 
-            // numero_casatxt
-            // 
-            this.numero_casatxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero_casatxt.Location = new System.Drawing.Point(455, 121);
-            this.numero_casatxt.Name = "numero_casatxt";
-            this.numero_casatxt.Size = new System.Drawing.Size(100, 26);
-            this.numero_casatxt.TabIndex = 19;
-            this.numero_casatxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numero_casatxt_KeyPress);
-            this.numero_casatxt.Validating += new System.ComponentModel.CancelEventHandler(this.numero_casatxt_Validating);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(358, 186);
+            this.label10.Location = new System.Drawing.Point(372, 120);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(91, 18);
             this.label10.TabIndex = 20;
@@ -324,7 +304,7 @@ namespace mutualsanjoseesposomaria
             // telefonotxt
             // 
             this.telefonotxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefonotxt.Location = new System.Drawing.Point(455, 182);
+            this.telefonotxt.Location = new System.Drawing.Point(469, 116);
             this.telefonotxt.Name = "telefonotxt";
             this.telefonotxt.Size = new System.Drawing.Size(100, 26);
             this.telefonotxt.TabIndex = 21;
@@ -334,9 +314,9 @@ namespace mutualsanjoseesposomaria
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(331, 242);
+            this.label12.Location = new System.Drawing.Point(345, 176);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(201, 133);
             this.label12.TabIndex = 24;
@@ -353,7 +333,7 @@ namespace mutualsanjoseesposomaria
             this.sToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(823, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(852, 25);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -459,24 +439,15 @@ namespace mutualsanjoseesposomaria
             // 
             // bENEFICIARIOSToolStripMenuItem
             // 
-            this.bENEFICIARIOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cONSULTAToolStripMenuItem1});
             this.bENEFICIARIOSToolStripMenuItem.Name = "bENEFICIARIOSToolStripMenuItem";
             this.bENEFICIARIOSToolStripMenuItem.Size = new System.Drawing.Size(107, 21);
             this.bENEFICIARIOSToolStripMenuItem.Text = "BENEFICIARIOS";
             this.bENEFICIARIOSToolStripMenuItem.Click += new System.EventHandler(this.bENEFICIARIOSToolStripMenuItem_Click);
             // 
-            // cONSULTAToolStripMenuItem1
-            // 
-            this.cONSULTAToolStripMenuItem1.Name = "cONSULTAToolStripMenuItem1";
-            this.cONSULTAToolStripMenuItem1.Size = new System.Drawing.Size(68, 22);
-            // 
             // sToolStripMenuItem
             // 
             this.sToolStripMenuItem.Name = "sToolStripMenuItem";
-            this.sToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
-            this.sToolStripMenuItem.Text = "SALIR";
-            this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
+            this.sToolStripMenuItem.Size = new System.Drawing.Size(12, 21);
             // 
             // panel1
             // 
@@ -485,20 +456,18 @@ namespace mutualsanjoseesposomaria
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(823, 74);
+            this.panel1.Size = new System.Drawing.Size(852, 74);
             this.panel1.TabIndex = 27;
             // 
             // edadtxt
             // 
+            this.edadtxt.Enabled = false;
             this.edadtxt.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edadtxt.Location = new System.Drawing.Point(178, 360);
             this.edadtxt.Name = "edadtxt";
             this.edadtxt.Size = new System.Drawing.Size(69, 25);
             this.edadtxt.TabIndex = 29;
             this.edadtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.edadtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edadtxt_KeyPress);
-            this.edadtxt.Validating += new System.ComponentModel.CancelEventHandler(this.edadtxt_Validating);
-            this.edadtxt.Validated += new System.EventHandler(this.edadtxt_Validated);
             // 
             // edad
             // 
@@ -516,7 +485,7 @@ namespace mutualsanjoseesposomaria
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(331, 445);
+            this.label11.Location = new System.Drawing.Point(345, 379);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(196, 19);
             this.label11.TabIndex = 30;
@@ -527,7 +496,7 @@ namespace mutualsanjoseesposomaria
             this.fecha_Ntxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.fecha_Ntxt.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fecha_Ntxt.ForeColor = System.Drawing.Color.Gray;
-            this.fecha_Ntxt.Location = new System.Drawing.Point(532, 439);
+            this.fecha_Ntxt.Location = new System.Drawing.Point(546, 373);
             this.fecha_Ntxt.Name = "fecha_Ntxt";
             this.fecha_Ntxt.Size = new System.Drawing.Size(128, 26);
             this.fecha_Ntxt.TabIndex = 31;
@@ -544,7 +513,7 @@ namespace mutualsanjoseesposomaria
             "1",
             "2",
             "3"});
-            this.tipo_pctx.Location = new System.Drawing.Point(391, 394);
+            this.tipo_pctx.Location = new System.Drawing.Point(405, 328);
             this.tipo_pctx.Name = "tipo_pctx";
             this.tipo_pctx.Size = new System.Drawing.Size(73, 21);
             this.tipo_pctx.TabIndex = 32;
@@ -554,7 +523,7 @@ namespace mutualsanjoseesposomaria
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(352, 505);
+            this.label13.Location = new System.Drawing.Point(366, 439);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(175, 19);
             this.label13.TabIndex = 33;
@@ -566,8 +535,9 @@ namespace mutualsanjoseesposomaria
             this.estadoctx.Items.AddRange(new object[] {
             "FALLECIDO",
             "VIGENTE",
+            "BAJA",
             "NINGUNO"});
-            this.estadoctx.Location = new System.Drawing.Point(391, 536);
+            this.estadoctx.Location = new System.Drawing.Point(405, 470);
             this.estadoctx.Name = "estadoctx";
             this.estadoctx.Size = new System.Drawing.Size(93, 21);
             this.estadoctx.TabIndex = 34;
@@ -576,13 +546,57 @@ namespace mutualsanjoseesposomaria
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // coloniatxb
+            // 
+            this.coloniatxb.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.coloniatxb.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coloniatxb.Location = new System.Drawing.Point(178, 569);
+            this.coloniatxb.Name = "coloniatxb";
+            this.coloniatxb.Size = new System.Drawing.Size(168, 25);
+            this.coloniatxb.TabIndex = 36;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(81, 574);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 18);
+            this.label14.TabIndex = 35;
+            this.label14.Text = "COLONIA";
+            // 
+            // observacionestxb
+            // 
+            this.observacionestxb.Location = new System.Drawing.Point(584, 231);
+            this.observacionestxb.Name = "observacionestxb";
+            this.observacionestxb.Size = new System.Drawing.Size(256, 94);
+            this.observacionestxb.TabIndex = 37;
+            this.observacionestxb.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(659, 210);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(137, 18);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "OBSERVACIONES";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::mutualsanjoseesposomaria.Properties.Resources.WhatsApp_Image_2022_12_06_at_2_37_51_PM__1_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(823, 667);
+            this.ClientSize = new System.Drawing.Size(852, 694);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.observacionestxb);
+            this.Controls.Add(this.coloniatxb);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.estadoctx);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.tipo_pctx);
@@ -594,8 +608,6 @@ namespace mutualsanjoseesposomaria
             this.Controls.Add(this.label12);
             this.Controls.Add(this.telefonotxt);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.numero_casatxt);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.calletxt);
             this.Controls.Add(this.ciudadtxt);
             this.Controls.Add(this.fecha_ingresotxt);
@@ -619,6 +631,7 @@ namespace mutualsanjoseesposomaria
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mutualsanjoseesposomaria";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -648,8 +661,6 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.TextBox fecha_ingresotxt;
         private System.Windows.Forms.TextBox ciudadtxt;
         private System.Windows.Forms.TextBox calletxt;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox numero_casatxt;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox telefonotxt;
         private System.Windows.Forms.Label label12;
@@ -676,11 +687,14 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox estadoctx;
         private System.Windows.Forms.ToolStripMenuItem bENEFICIARIOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cONSULTAToolStripMenuItem1;
 //        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         protected System.Windows.Forms.TextBox idtxt;
+        private System.Windows.Forms.TextBox coloniatxb;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RichTextBox observacionestxb;
     }
 }
 

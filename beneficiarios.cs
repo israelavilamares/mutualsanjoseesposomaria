@@ -25,12 +25,12 @@ namespace mutualsanjoseesposomaria
             errorProvider1.SetError(nombretxt, "");
             errorProvider1.SetError(parentescoctx, "");
             errorProvider1.SetError(sexocxt, "");
-            errorProvider1.SetError(edadtxt, "");
+            errorProvider1.SetError(Fecha_Natxt, "");
         }
         private bool validacionagregar()
         {
             bool ok = true;
-            if(numbeneficiario.Text == "")
+            if (numbeneficiario.Text == "")
             {
                 ok = false;
                 errorProvider1.SetError(numbeneficiario, "ingresa el numero de beneficiario");
@@ -57,34 +57,55 @@ namespace mutualsanjoseesposomaria
                 {
                     ok = false;
                     errorProvider1.SetError(sexocxt, "ingresa el sexo de beneficiario");
-                    
+
                 }
-                if (edadtxt.Text == "")
+                if (Fecha_Natxt.Text == "")
                 {
                     ok = false;
-                    errorProvider1.SetError(edadtxt, "ingresa la edad de beneficiario");
-                    
+                    errorProvider1.SetError(Fecha_Natxt, "ingresa la edad de beneficiario");
+
                 }
             }
             return ok;
         }
         private void agregar_Click(object sender, EventArgs e)
         {
-          //  int numero_beneficiorio = int.Parse(numbeneficiario.Text);
+            //  int numero_beneficiorio = int.Parse(numbeneficiario.Text);
             //int numero_socio = int.Parse(idtxt.Text);
             string nombreCompleto = nombretxt.Text;
             DateTime fecha = DateTime.Now;
             //conversion
             string nuevaf = fecha.ToString("yyyy/MM/dd hh:mm:ss");
+
             //mostrar en texbox
             fecha_ingresotxt.Text = nuevaf;
+            //declaramos una variables 
+            //   DateTime Fecha_N;
+            //   Fecha_Natxt.Text.ToString = Fecha_N.ToString("");
+
+
             string parentesco = parentescoctx.Text;
             string sexo = sexocxt.Text;
-           // int edad = int.Parse(edadtxt.Text);
+            // int edad = int.Parse(edadtxt.Text);
+            string fechaNac = Fecha_Natxt.Text;
+            DateTime obtfechact = DateTime.Now;
+            try
+            {
+                DateTime fechanac = DateTime.Parse(fechaNac);
+                TimeSpan diferencia = obtfechact - fechanac;
+                double dias = diferencia.TotalDays;
+                double edad = Math.Floor(dias / 365);
+                edadtxt.Text = Convert.ToString(edad);
+            }
+            catch
+            {
+                MessageBox.Show("Esta Mal Revisa");
+                return;
+            }
             if (validacionagregar())
             {
                 borrarerroresagregar();
-                string sql = "INSERT INTO mutualsanjose.beneficiarios VALUES('" + numbeneficiario.Text + "','" + idtxt.Text + "','" + nombreCompleto + "','" + nuevaf + "','" + parentesco + "','" + sexo + "','" + edadtxt.Text + "')";
+                string sql = "INSERT INTO mutualsanjose.beneficiarios VALUES('" + numbeneficiario.Text + "','" + idtxt.Text + "','" + nombreCompleto + "','" + nuevaf + "','" + parentesco + "','" + sexo + "','" + fechaNac + "','" + edadtxt.Text + "')";
 
                 MySqlConnection conexionDB = Conexion.conexion();
                 conexionDB.Open();
@@ -131,7 +152,7 @@ namespace mutualsanjoseesposomaria
             fecha_ingresotxt.Clear();
             nombretxt.Clear();
             numbeneficiario.Clear();
-            edadtxt.Clear();
+            Fecha_Natxt.Clear();
             if (parentescoctx.Text == "HIJO")
             {
                 parentescoctx.Text = "NINGUNO";
@@ -154,6 +175,7 @@ namespace mutualsanjoseesposomaria
             {
                 sexocxt.Text = "NINGUNO";
             }
+            edadtxt.Clear();
 
         }
 
@@ -161,7 +183,7 @@ namespace mutualsanjoseesposomaria
         {
             DataTable datatable = new DataTable();
 
-            string query = "SELECT  beneficiarios.idbenefsocio as numero_socio,socios.nombre AS nombre_socio,socios.apellido as apellido_socio,socios.estado as vigencia ,beneficiarios.idbenef as numero_folio,beneficiarios.nombre_beneficiario , beneficiarios.fecha,beneficiarios.parentesco,beneficiarios.sexo  FROM beneficiarios JOIN socios ON beneficiarios.idbenefsocio = socios.id;";
+            string query = "SELECT  beneficiarios.idbenefsocio as numero_socio,socios.nombre AS nombre_socio,socios.apellido as apellido_socio,socios.estado as vigencia ,beneficiarios.idbenef as numero_folio,beneficiarios.nombre_beneficiario , beneficiarios.fecha,beneficiarios.parentesco,beneficiarios.sexo,beneficiarios.edad, beneficiarios.Fecha_Nac FROM beneficiarios JOIN socios ON beneficiarios.idbenefsocio = socios.id;";
             MySqlConnection conexionDB = Conexion.conexion();
             MySqlDataReader resultado;
             conexionDB.Open();
@@ -196,7 +218,7 @@ namespace mutualsanjoseesposomaria
         {
             DataTable datatable = new DataTable();
 
-            string query = "SELECT beneficiarios.idbenefsocio as numero_socio,socios.nombre AS nombre_socio,socios.apellido as apellido_socio,socios.estado as vigencia ,beneficiarios.idbenef as numero_folio,beneficiarios.nombre_beneficiario , beneficiarios.fecha,beneficiarios.parentesco,beneficiarios.sexo FROM beneficiarios JOIN socios ON beneficiarios.idbenefsocio = socios.id;";
+            string query = "SELECT beneficiarios.idbenefsocio as numero_socio,socios.nombre AS nombre_socio,socios.apellido as apellido_socio,socios.estado as vigencia ,beneficiarios.idbenef as numero_folio,beneficiarios.nombre_beneficiario , beneficiarios.fecha,beneficiarios.parentesco,beneficiarios.sexo,beneficiarios.edad, beneficiarios.Fecha_Nac FROM beneficiarios JOIN socios ON beneficiarios.idbenefsocio = socios.id;";
             MySqlConnection conexionDB = Conexion.conexion();
             MySqlDataReader resultado;
             conexionDB.Open();
@@ -236,7 +258,7 @@ namespace mutualsanjoseesposomaria
                 errorProvider1.SetError(numerosocioeliminartxt, "ingresa el numero de socio que deseas eliminar");
 
             }
-        
+
             return ok;
         }
         private void borrarerrores()
@@ -292,7 +314,8 @@ namespace mutualsanjoseesposomaria
                 }
                 else { }
 
-            }else
+            }
+            else
             {
                 MessageBox.Show("¡Ingrese el dato a eliminar!");
             }
@@ -422,9 +445,9 @@ namespace mutualsanjoseesposomaria
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             DataTable datatable = new DataTable();
-            string query = "SELECT DISTINCT beneficiarios.idbenefsocio as numero_socio,socios.nombre AS nombre_socio,socios.apellido as apellido_socio,socios.estado as vigencia ,beneficiarios.idbenef as numero_folio,beneficiarios.nombre_beneficiario , beneficiarios.fecha,beneficiarios.parentesco,beneficiarios.sexo FROM beneficiarios JOIN socios ON beneficiarios.idbenefsocio = socios.id WHERE beneficiarios.idbenefsocio = " + searchnumerosocioeliminartxt.Text + "  ORDER BY beneficiarios.idbenef ASC";
+            string query = "SELECT DISTINCT beneficiarios.idbenefsocio as numero_socio,socios.nombre AS nombre_socio,socios.apellido as apellido_socio,socios.estado as vigencia ,beneficiarios.idbenef as numero_folio,beneficiarios.nombre_beneficiario , beneficiarios.fecha,beneficiarios.parentesco,beneficiarios.sexo,beneficiarios.edad, beneficiarios.Fecha_Nac FROM beneficiarios JOIN socios ON beneficiarios.idbenefsocio = socios.id WHERE beneficiarios.idbenefsocio = " + searchnumerosocioeliminartxt.Text + "  ORDER BY beneficiarios.idbenef ASC";
 
 
             MySqlConnection conexionDB = Conexion.conexion();
@@ -490,7 +513,7 @@ namespace mutualsanjoseesposomaria
             int num;
             if (!int.TryParse(nombretxt.Text, out num))
             {
-                errorProvider1.SetError(nombretxt, "Ingrese numero de socio");
+                errorProvider1.SetError(nombretxt, "Ingrese Nombre del socio");
             }
             else
             {
@@ -530,13 +553,13 @@ namespace mutualsanjoseesposomaria
         private void edadtxt_Validating(object sender, CancelEventArgs e)
         {
             int num;
-            if (!int.TryParse(edadtxt.Text, out num))
+            if (!int.TryParse(Fecha_Natxt.Text, out num))
             {
-                errorProvider1.SetError(edadtxt, "Ingrese edad del beneficiario");
+                errorProvider1.SetError(Fecha_Natxt, "Ingrese edad del beneficiario");
             }
             else
             {
-                errorProvider1.SetError(edadtxt,"");
+                errorProvider1.SetError(Fecha_Natxt, "");
 
             }
         }
@@ -623,25 +646,7 @@ namespace mutualsanjoseesposomaria
             }
         }
 
-        private void edadtxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsNumber(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
 
-            if (e.KeyChar == (char)13)
-            {
-            }
-        }
 
         private void numerosocioeliminartxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -701,6 +706,115 @@ namespace mutualsanjoseesposomaria
             if (e.KeyChar == (char)13)
             {
             }
+        }
+
+        /*  private void saberedad(DataGridView tabla)
+          {
+              Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+              excel.Application.Workbooks.Add(true);
+        /*      int indiceColumna = 0;
+              foreach (DataGridViewColumn col in tabla.Columns)
+              {
+                  indiceColumna++;
+                  excel.Cells[1, indiceColumna] = col.Name;
+              }
+
+              int indicerows = 0;
+              foreach (DataGridViewRow fila in tabla.Rows)
+              {
+                  indicerows++;
+                 int indiceColumna = 10;
+                  DataGridViewColumn col;
+                      excel.Cells[indicerows + 1, indiceColumna] = fila.Cells[col.Name].Value;
+
+
+              }
+              excel.Visible = true;
+          }
+          */
+
+       
+
+        private void edadbton_Click_1(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                //muestra por columna la fecha nacimiento
+                string fechaN = dataGridView1.Rows[i].Cells[10].Value.ToString();
+                //muestra la columna numero de beneficiario
+                string numerodebeneficiario = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                //muestra la columna parentesco
+                string parentesco = dataGridView1.Rows[i].Cells[7].Value.ToString();
+
+                
+                //muestra la fecha actual
+                DateTime fechaahora = DateTime.Now;
+                //conversion de la columna fecha de naciento
+                //a tipo de dato tiempo
+                DateTime fechanac = DateTime.Parse(fechaN);
+                //se resta la fecha actual con la fecha de naciento
+                TimeSpan diferencia = fechaahora - fechanac;
+                //lo convierte a dias
+                double dias = diferencia.TotalDays;
+                //y a año para sacar la edad
+                double edad = Math.Floor(dias / 365);
+                //si edad es mayor a 19
+                //entonces la muestra 
+               if((edad > 19) && (parentesco != "CONYUGUE") )
+                {
+
+                    // numero de beneficiario (1) la edad -> 22 - parentesco 
+                    MessageBox.Show("numero de beneficiario " +"("  + numerodebeneficiario + ")  la edad -> " + edad + " - parentesco " + parentesco );
+                    DialogResult dialogResult = MessageBox.Show("estas seguro", "eliminacion de socio", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+
+                        string borrar = "DELETE FROM beneficiarios WHERE idbenef = '" + numerodebeneficiario + "'";
+
+
+
+                        MySqlConnection conexionDB = Conexion.conexion();
+                        conexionDB.Open();
+                        try
+                        {
+
+
+                            MySqlCommand comando = new MySqlCommand(borrar, conexionDB);
+
+                            if (comando.ExecuteNonQuery() == 1)
+                            {
+
+                                MessageBox.Show("ELIMINACION CON EXITO");
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("¡ESTA VACIO! o ¡NO EXISTE!");
+                            }
+                        }
+                        catch (MySqlException ex)
+                        {
+
+                            MessageBox.Show("Error al ELIMINAR" + ex.Message);
+                            MessageBox.Show("Elimina Primero en Pagos y luego aqui");
+                            MessageBox.Show("Tambien en beneficiarios en caso de que tenga luego aqui");
+
+
+                        }
+                        finally
+                        {
+
+                            conexionDB.Close();
+
+                        }
+                    }
+                    else { }
+                }
+
+            }
+
+
         }
     }
 }

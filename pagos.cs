@@ -65,6 +65,12 @@ namespace mutualsanjoseesposomaria
                 ok = false;
                 errorProvider1.SetError(numerosocio, "ingresa el numero de socio");
             }
+            else if(numerosocio.Text == "NUMERO SOCIO")
+            {
+                ok = false;
+                errorProvider1.SetError(numerosocio, "ingresa el numero de socio");
+
+            }
             if (tipo_p.Text == "")
             {
                 ok = false;
@@ -74,7 +80,12 @@ namespace mutualsanjoseesposomaria
             {
                 ok = false;
                 errorProvider1.SetError(cantidad, "ingresa la cantidad de inscripcion");
-            }                       
+            } else if(cantidad.Text == "CANTIDAD")
+            {
+                ok = false;
+                errorProvider1.SetError(cantidad, "ingresa la cantidad de inscripcion");
+
+            }
             return ok;
         }
         private void agregar_Click(object sender, EventArgs e)
@@ -214,7 +225,7 @@ namespace mutualsanjoseesposomaria
         private void pagos_Load(object sender, EventArgs e)
         {
             DataTable datatable = new DataTable();
-            string query = "SELECT * FROM pagos";
+            string query = "SELECT pagos.idpagos,socios.nombre,socios.apellido,tipo_s.nombre AS Tipo_pago,pagos.pago,pagos.fecha AS fecha_de_pago FROM pagos JOIN tipo_s ON pagos.idtipo_p = tipo_s.id JOIN socios ON socios.id = pagos.idpagos";
 
             MySqlConnection conexionDB = Conexion.conexion();
             MySqlDataReader resultado;
@@ -234,7 +245,7 @@ namespace mutualsanjoseesposomaria
             catch (MySqlException ex)
             {
 
-                MessageBox.Show("Error al guardar" + ex.Message);
+                MessageBox.Show("Error al mostrar" + ex.Message);
 
 
             }
@@ -249,7 +260,7 @@ namespace mutualsanjoseesposomaria
         private void REFRESCAR_Click(object sender, EventArgs e)
         {
             DataTable datatable = new DataTable();
-            string query = "SELECT * FROM pagos";
+            string query = "SELECT pagos.idpagos,socios.nombre,socios.apellido,tipo_s.nombre AS Tipo_pago,pagos.pago,pagos.fecha AS fecha_de_pago FROM pagos JOIN tipo_s ON pagos.idtipo_p = tipo_s.id JOIN socios ON socios.id = pagos.idpagos";
 
             MySqlConnection conexionDB = Conexion.conexion();
             MySqlDataReader resultado;
@@ -269,7 +280,7 @@ namespace mutualsanjoseesposomaria
             catch (MySqlException ex)
             {
 
-                MessageBox.Show("Error al guardar" + ex.Message);
+                MessageBox.Show("Error al mostrar" + ex.Message);
 
 
             }
@@ -288,6 +299,11 @@ namespace mutualsanjoseesposomaria
             {
                 ok = false;
                 errorProvider1.SetError(numerosocioeliminartxt, "ingresa el numero de socio");
+            }else if(numerosocioeliminartxt.Text == "NUMERO  DEL SOCIO")
+            {
+                ok = false;
+                errorProvider1.SetError(numerosocioeliminartxt, "Ingresa el numero de socio");
+
             }
             return ok;
         }

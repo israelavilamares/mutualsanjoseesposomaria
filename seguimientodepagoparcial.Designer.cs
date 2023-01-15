@@ -35,6 +35,9 @@ namespace mutualsanjoseesposomaria
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.contartppxt = new System.Windows.Forms.TextBox();
+            this.contar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -64,7 +67,9 @@ namespace mutualsanjoseesposomaria
             this.fechatxt = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.apellidotxbPP = new System.Windows.Forms.TextBox();
+            this.export = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -82,7 +87,7 @@ namespace mutualsanjoseesposomaria
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1075, 779);
+            this.panel1.Size = new System.Drawing.Size(1284, 781);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -107,14 +112,19 @@ namespace mutualsanjoseesposomaria
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 590);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 592);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1071, 185);
+            this.dataGridView1.Size = new System.Drawing.Size(1280, 185);
             this.dataGridView1.TabIndex = 71;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.panel2.Controls.Add(this.export);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.apellidotxbPP);
+            this.panel2.Controls.Add(this.contartppxt);
+            this.panel2.Controls.Add(this.contar);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label7);
@@ -141,8 +151,40 @@ namespace mutualsanjoseesposomaria
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1071, 746);
+            this.panel2.Size = new System.Drawing.Size(1280, 748);
             this.panel2.TabIndex = 70;
+            // 
+            // contartppxt
+            // 
+            this.contartppxt.Enabled = false;
+            this.contartppxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contartppxt.ForeColor = System.Drawing.Color.Gray;
+            this.contartppxt.Location = new System.Drawing.Point(428, 25);
+            this.contartppxt.Name = "contartppxt";
+            this.contartppxt.Size = new System.Drawing.Size(120, 26);
+            this.contartppxt.TabIndex = 92;
+            // 
+            // contar
+            // 
+            this.contar.FlatAppearance.BorderSize = 4;
+            this.contar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contar.Location = new System.Drawing.Point(554, 9);
+            this.contar.Name = "contar";
+            this.contar.Size = new System.Drawing.Size(107, 54);
+            this.contar.TabIndex = 91;
+            this.contar.Text = "TOTAL FACTURAS";
+            this.contar.UseVisualStyleBackColor = true;
+            this.contar.Click += new System.EventHandler(this.contar_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(318, 315);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 18);
+            this.label10.TabIndex = 90;
+            this.label10.Text = "IMPORTE";
             // 
             // label9
             // 
@@ -173,7 +215,7 @@ namespace mutualsanjoseesposomaria
             this.flowLayoutPanel2.Controls.Add(this.buscaultimo);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.ultimotxt);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(487, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(699, 18);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(581, 85);
             this.flowLayoutPanel2.TabIndex = 85;
@@ -196,6 +238,7 @@ namespace mutualsanjoseesposomaria
             this.searchnumsociotxt.Size = new System.Drawing.Size(100, 26);
             this.searchnumsociotxt.TabIndex = 78;
             this.searchnumsociotxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchnumsociotxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchnumsociotxt_KeyPress);
             // 
             // buscaultimo
             // 
@@ -235,7 +278,7 @@ namespace mutualsanjoseesposomaria
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(807, 338);
+            this.label6.Location = new System.Drawing.Point(621, 328);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 19);
             this.label6.TabIndex = 86;
@@ -243,7 +286,8 @@ namespace mutualsanjoseesposomaria
             // 
             // observacionestxt
             // 
-            this.observacionestxt.Location = new System.Drawing.Point(666, 360);
+            this.observacionestxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.observacionestxt.Location = new System.Drawing.Point(480, 350);
             this.observacionestxt.Name = "observacionestxt";
             this.observacionestxt.Size = new System.Drawing.Size(395, 153);
             this.observacionestxt.TabIndex = 85;
@@ -255,7 +299,7 @@ namespace mutualsanjoseesposomaria
             this.actulizar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.actulizar.ForeColor = System.Drawing.SystemColors.MenuText;
             this.actulizar.Image = global::mutualsanjoseesposomaria.Properties.Resources.descarga__2_;
-            this.actulizar.Location = new System.Drawing.Point(475, 349);
+            this.actulizar.Location = new System.Drawing.Point(1159, 463);
             this.actulizar.Name = "actulizar";
             this.actulizar.Size = new System.Drawing.Size(111, 94);
             this.actulizar.TabIndex = 84;
@@ -267,20 +311,21 @@ namespace mutualsanjoseesposomaria
             // 
             this.eliminarnumerofacturatxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eliminarnumerofacturatxt.ForeColor = System.Drawing.Color.DarkGray;
-            this.eliminarnumerofacturatxt.Location = new System.Drawing.Point(646, 294);
+            this.eliminarnumerofacturatxt.Location = new System.Drawing.Point(682, 277);
             this.eliminarnumerofacturatxt.Name = "eliminarnumerofacturatxt";
             this.eliminarnumerofacturatxt.Size = new System.Drawing.Size(160, 26);
             this.eliminarnumerofacturatxt.TabIndex = 83;
             this.eliminarnumerofacturatxt.Text = "NUMERO FACTURA";
             this.eliminarnumerofacturatxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.eliminarnumerofacturatxt.Enter += new System.EventHandler(this.eliminarnumerofacturatxt_Enter);
+            this.eliminarnumerofacturatxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eliminarnumerofacturatxt_KeyPress);
             this.eliminarnumerofacturatxt.Leave += new System.EventHandler(this.eliminarnumerofacturatxt_Leave);
             // 
             // eliminanumerofacturabutton
             // 
             this.eliminanumerofacturabutton.BackColor = System.Drawing.Color.Brown;
             this.eliminanumerofacturabutton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eliminanumerofacturabutton.Location = new System.Drawing.Point(544, 252);
+            this.eliminanumerofacturabutton.Location = new System.Drawing.Point(580, 235);
             this.eliminanumerofacturabutton.Name = "eliminanumerofacturabutton";
             this.eliminanumerofacturabutton.Size = new System.Drawing.Size(96, 68);
             this.eliminanumerofacturabutton.TabIndex = 82;
@@ -292,20 +337,21 @@ namespace mutualsanjoseesposomaria
             // 
             this.numerosocioeliminartxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numerosocioeliminartxt.ForeColor = System.Drawing.Color.DarkGray;
-            this.numerosocioeliminartxt.Location = new System.Drawing.Point(646, 192);
+            this.numerosocioeliminartxt.Location = new System.Drawing.Point(682, 175);
             this.numerosocioeliminartxt.Name = "numerosocioeliminartxt";
             this.numerosocioeliminartxt.Size = new System.Drawing.Size(219, 26);
             this.numerosocioeliminartxt.TabIndex = 81;
-            this.numerosocioeliminartxt.Text = "NUMERO PAGO DEL SOCIO";
+            this.numerosocioeliminartxt.Text = "NUMERO DEL SOCIO";
             this.numerosocioeliminartxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numerosocioeliminartxt.Enter += new System.EventHandler(this.numerosocioeliminartxt_Enter);
+            this.numerosocioeliminartxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numerosocioeliminartxt_KeyPress);
             this.numerosocioeliminartxt.Leave += new System.EventHandler(this.numerosocioeliminartxt_Leave);
             // 
             // eliminarnumerosociobutton
             // 
             this.eliminarnumerosociobutton.BackColor = System.Drawing.Color.Brown;
             this.eliminarnumerosociobutton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eliminarnumerosociobutton.Location = new System.Drawing.Point(544, 150);
+            this.eliminarnumerosociobutton.Location = new System.Drawing.Point(580, 133);
             this.eliminarnumerosociobutton.Name = "eliminarnumerosociobutton";
             this.eliminarnumerosociobutton.Size = new System.Drawing.Size(96, 68);
             this.eliminarnumerosociobutton.TabIndex = 80;
@@ -350,7 +396,7 @@ namespace mutualsanjoseesposomaria
             // 
             this.mes1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.mes1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mes1.ForeColor = System.Drawing.Color.DarkGray;
+            this.mes1.ForeColor = System.Drawing.Color.Gray;
             this.mes1.Location = new System.Drawing.Point(171, 232);
             this.mes1.Name = "mes1";
             this.mes1.Size = new System.Drawing.Size(140, 26);
@@ -363,7 +409,7 @@ namespace mutualsanjoseesposomaria
             // 
             this.mes2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.mes2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mes2.ForeColor = System.Drawing.Color.DarkGray;
+            this.mes2.ForeColor = System.Drawing.Color.Gray;
             this.mes2.Location = new System.Drawing.Point(356, 232);
             this.mes2.Name = "mes2";
             this.mes2.Size = new System.Drawing.Size(150, 26);
@@ -386,9 +432,10 @@ namespace mutualsanjoseesposomaria
             // 
             // importetxt
             // 
+            this.importetxt.Enabled = false;
             this.importetxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.importetxt.ForeColor = System.Drawing.Color.Gray;
-            this.importetxt.Location = new System.Drawing.Point(293, 336);
+            this.importetxt.Location = new System.Drawing.Point(284, 338);
             this.importetxt.Name = "importetxt";
             this.importetxt.Size = new System.Drawing.Size(130, 26);
             this.importetxt.TabIndex = 74;
@@ -418,8 +465,9 @@ namespace mutualsanjoseesposomaria
             this.idpagoparcial.ForeColor = System.Drawing.Color.DarkGray;
             this.idpagoparcial.Location = new System.Drawing.Point(200, 59);
             this.idpagoparcial.Name = "idpagoparcial";
-            this.idpagoparcial.Size = new System.Drawing.Size(137, 26);
+            this.idpagoparcial.Size = new System.Drawing.Size(159, 26);
             this.idpagoparcial.TabIndex = 58;
+            this.idpagoparcial.Text = "NUMERO DE SOCIO";
             this.idpagoparcial.Enter += new System.EventHandler(this.idpagoparcial_Enter);
             this.idpagoparcial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idpagoparcial_KeyPress);
             this.idpagoparcial.Leave += new System.EventHandler(this.idpagoparcial_Leave);
@@ -430,16 +478,17 @@ namespace mutualsanjoseesposomaria
             this.numerodefacturatxt.ForeColor = System.Drawing.Color.DarkGray;
             this.numerodefacturatxt.Location = new System.Drawing.Point(200, 15);
             this.numerodefacturatxt.Name = "numerodefacturatxt";
-            this.numerodefacturatxt.Size = new System.Drawing.Size(137, 26);
+            this.numerodefacturatxt.Size = new System.Drawing.Size(159, 26);
             this.numerodefacturatxt.TabIndex = 60;
+            this.numerodefacturatxt.Text = "NUMERO FACTURA";
             this.numerodefacturatxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numerodefacturatxt.Enter += new System.EventHandler(this.numerodefacturatxt_Enter);
             this.numerodefacturatxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numerodefacturatxt_KeyPress);
             this.numerodefacturatxt.Leave += new System.EventHandler(this.numerodefacturatxt_Leave);
-            this.numerodefacturatxt.Validating += new System.ComponentModel.CancelEventHandler(this.numerodefacturatxt_Validating);
             // 
             // fechatxt
             // 
+            this.fechatxt.Cursor = System.Windows.Forms.Cursors.No;
             this.fechatxt.Enabled = false;
             this.fechatxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechatxt.ForeColor = System.Drawing.Color.DarkGray;
@@ -449,6 +498,8 @@ namespace mutualsanjoseesposomaria
             this.fechatxt.Size = new System.Drawing.Size(298, 26);
             this.fechatxt.TabIndex = 59;
             this.fechatxt.Text = "FECHA AUTOMATICA";
+            this.fechatxt.Enter += new System.EventHandler(this.fechatxt_Enter);
+            this.fechatxt.Leave += new System.EventHandler(this.fechatxt_Leave);
             // 
             // dateTimePicker1
             // 
@@ -457,32 +508,59 @@ namespace mutualsanjoseesposomaria
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(1071, 29);
+            this.dateTimePicker1.Size = new System.Drawing.Size(1280, 29);
             this.dateTimePicker1.TabIndex = 0;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label10
+            // label8
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(318, 315);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 18);
-            this.label10.TabIndex = 90;
-            this.label10.Text = "IMPORTE";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(895, 525);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 24);
+            this.label8.TabIndex = 94;
+            this.label8.Text = "APELLIDO";
+            // 
+            // apellidotxbPP
+            // 
+            this.apellidotxbPP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.apellidotxbPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apellidotxbPP.ForeColor = System.Drawing.Color.Black;
+            this.apellidotxbPP.Location = new System.Drawing.Point(1001, 523);
+            this.apellidotxbPP.Name = "apellidotxbPP";
+            this.apellidotxbPP.Size = new System.Drawing.Size(120, 26);
+            this.apellidotxbPP.TabIndex = 93;
+            this.apellidotxbPP.TextChanged += new System.EventHandler(this.apellidotxbPP_TextChanged);
+            // 
+            // export
+            // 
+            this.export.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.export.FlatAppearance.BorderSize = 3;
+            this.export.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.export.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.export.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.export.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.export.Location = new System.Drawing.Point(22, 496);
+            this.export.Name = "export";
+            this.export.Size = new System.Drawing.Size(170, 53);
+            this.export.TabIndex = 95;
+            this.export.Text = "EXPORTAR EXCEL";
+            this.export.UseVisualStyleBackColor = true;
+            this.export.Click += new System.EventHandler(this.export_Click);
             // 
             // seguimientodepagoparcial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1075, 779);
+            this.ClientSize = new System.Drawing.Size(1284, 781);
             this.Controls.Add(this.panel1);
             this.Name = "seguimientodepagoparcial";
             this.Text = "seguimientodepagoparcial";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.seguimientodepagoparcial_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -530,5 +608,10 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox contartppxt;
+        private System.Windows.Forms.Button contar;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox apellidotxbPP;
+        private System.Windows.Forms.Button export;
     }
 }

@@ -57,10 +57,13 @@ namespace mutualsanjoseesposomaria
             this.label7 = new System.Windows.Forms.Label();
             this.numbeneficiario = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.edadtxt = new System.Windows.Forms.TextBox();
+            this.Fecha_Natxt = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.searchnumerosocioeliminartxt = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.edadtxt = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.edadbton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -274,6 +277,7 @@ namespace mutualsanjoseesposomaria
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.actulizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.actulizar.FlatAppearance.BorderSize = 0;
             this.actulizar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.actulizar.ForeColor = System.Drawing.SystemColors.MenuText;
             this.actulizar.Image = global::mutualsanjoseesposomaria.Properties.Resources.descarga__2_;
@@ -367,22 +371,21 @@ namespace mutualsanjoseesposomaria
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 414);
+            this.label8.Location = new System.Drawing.Point(9, 418);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 22);
+            this.label8.Size = new System.Drawing.Size(240, 22);
             this.label8.TabIndex = 93;
-            this.label8.Text = "EDAD";
+            this.label8.Text = "FECHA DE NACIEMENTO";
             // 
-            // edadtxt
+            // Fecha_Natxt
             // 
-            this.edadtxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.edadtxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edadtxt.Location = new System.Drawing.Point(226, 413);
-            this.edadtxt.Name = "edadtxt";
-            this.edadtxt.Size = new System.Drawing.Size(111, 26);
-            this.edadtxt.TabIndex = 94;
-            this.edadtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edadtxt_KeyPress);
-            this.edadtxt.Validating += new System.ComponentModel.CancelEventHandler(this.edadtxt_Validating);
+            this.Fecha_Natxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.Fecha_Natxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fecha_Natxt.Location = new System.Drawing.Point(255, 414);
+            this.Fecha_Natxt.Name = "Fecha_Natxt";
+            this.Fecha_Natxt.Size = new System.Drawing.Size(120, 26);
+            this.Fecha_Natxt.TabIndex = 94;
+            this.Fecha_Natxt.Validating += new System.ComponentModel.CancelEventHandler(this.edadtxt_Validating);
             // 
             // button1
             // 
@@ -394,9 +397,9 @@ namespace mutualsanjoseesposomaria
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = global::mutualsanjoseesposomaria.Properties.Resources.buscar;
-            this.button1.Location = new System.Drawing.Point(785, 426);
+            this.button1.Location = new System.Drawing.Point(785, 427);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 108);
+            this.button1.Size = new System.Drawing.Size(112, 107);
             this.button1.TabIndex = 96;
             this.button1.Text = "BUSCAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -421,6 +424,45 @@ namespace mutualsanjoseesposomaria
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // edadtxt
+            // 
+            this.edadtxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.edadtxt.Enabled = false;
+            this.edadtxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edadtxt.Location = new System.Drawing.Point(107, 480);
+            this.edadtxt.Name = "edadtxt";
+            this.edadtxt.Size = new System.Drawing.Size(80, 26);
+            this.edadtxt.TabIndex = 100;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(10, 484);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 22);
+            this.label9.TabIndex = 99;
+            this.label9.Text = "EDAD";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // edadbton
+            // 
+            this.edadbton.BackColor = System.Drawing.Color.YellowGreen;
+            this.edadbton.FlatAppearance.BorderSize = 0;
+            this.edadbton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.edadbton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.edadbton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.edadbton.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edadbton.Location = new System.Drawing.Point(255, 475);
+            this.edadbton.Name = "edadbton";
+            this.edadbton.Size = new System.Drawing.Size(132, 50);
+            this.edadbton.TabIndex = 103;
+            this.edadbton.Text = "EDADES ACTUALES";
+            this.edadbton.UseVisualStyleBackColor = false;
+            this.edadbton.Click += new System.EventHandler(this.edadbton_Click_1);
+            // 
             // beneficiarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,9 +470,12 @@ namespace mutualsanjoseesposomaria
             this.BackgroundImage = global::mutualsanjoseesposomaria.Properties.Resources.descarga__3_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(909, 713);
+            this.Controls.Add(this.edadbton);
+            this.Controls.Add(this.edadtxt);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.searchnumerosocioeliminartxt);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.edadtxt);
+            this.Controls.Add(this.Fecha_Natxt);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.numbeneficiario);
             this.Controls.Add(this.label7);
@@ -489,9 +534,12 @@ namespace mutualsanjoseesposomaria
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox numbeneficiario;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox edadtxt;
+        private System.Windows.Forms.TextBox Fecha_Natxt;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox searchnumerosocioeliminartxt;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox edadtxt;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button edadbton;
     }
 }

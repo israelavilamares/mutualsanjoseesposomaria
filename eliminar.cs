@@ -71,7 +71,8 @@ namespace mutualsanjoseesposomaria
                     {
 
                         MessageBox.Show("Error al ELIMINAR" + ex.Message);
-                        MessageBox.Show("elimina primero en pagos y luego aqui");
+                        MessageBox.Show("Elimina Primero en Pagos y luego aqui");
+                        MessageBox.Show("Tambien en beneficiarios en caso de que tenga luego aqui");
 
 
                     }

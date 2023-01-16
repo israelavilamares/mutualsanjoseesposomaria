@@ -25,7 +25,7 @@ namespace mutualsanjoseesposomaria
             errorProvider1.SetError(nombretxt, "");
             errorProvider1.SetError(parentescoctx, "");
             errorProvider1.SetError(sexocxt, "");
-            errorProvider1.SetError(Fecha_Natxt, "");
+            
         }
         private bool validacionagregar()
         {
@@ -59,12 +59,12 @@ namespace mutualsanjoseesposomaria
                     errorProvider1.SetError(sexocxt, "ingresa el sexo de beneficiario");
 
                 }
-                if (Fecha_Natxt.Text == "")
+               /* if (Fecha_Natxt.Text == "")
                 {
                     ok = false;
                     errorProvider1.SetError(Fecha_Natxt, "ingresa la edad de beneficiario");
 
-                }
+                }*/
             }
             return ok;
         }
@@ -75,7 +75,7 @@ namespace mutualsanjoseesposomaria
             string nombreCompleto = nombretxt.Text;
             DateTime fecha = DateTime.Now;
             //conversion
-            string nuevaf = fecha.ToString("yyyy/MM/dd hh:mm:ss");
+            string nuevaf = fecha.ToString("yyyy/MM/dd");
 
             //mostrar en texbox
             fecha_ingresotxt.Text = nuevaf;
@@ -86,8 +86,13 @@ namespace mutualsanjoseesposomaria
 
             string parentesco = parentescoctx.Text;
             string sexo = sexocxt.Text;
-            // int edad = int.Parse(edadtxt.Text);
-            string fechaNac = Fecha_Natxt.Text;
+
+            string acomdo = orgarbox1.Text+"/" + organbox2.Text+"/" + orgabox3.Text;
+            
+
+            string fechaNac = acomdo;
+
+           
             DateTime obtfechact = DateTime.Now;
             try
             {
@@ -103,7 +108,7 @@ namespace mutualsanjoseesposomaria
                 return;
             }
             if (validacionagregar())
-            {
+            {                                                                                                                                                                                                    //Fecha_Natxt.Text 
                 borrarerroresagregar();
                 string sql = "INSERT INTO mutualsanjose.beneficiarios VALUES('" + numbeneficiario.Text + "','" + idtxt.Text + "','" + nombreCompleto + "','" + nuevaf + "','" + parentesco + "','" + sexo + "','" + fechaNac + "','" + edadtxt.Text + "')";
 
@@ -152,7 +157,6 @@ namespace mutualsanjoseesposomaria
             fecha_ingresotxt.Clear();
             nombretxt.Clear();
             numbeneficiario.Clear();
-            Fecha_Natxt.Clear();
             if (parentescoctx.Text == "HIJO")
             {
                 parentescoctx.Text = "NINGUNO";
@@ -550,19 +554,7 @@ namespace mutualsanjoseesposomaria
             }
         }
 
-        private void edadtxt_Validating(object sender, CancelEventArgs e)
-        {
-            int num;
-            if (!int.TryParse(Fecha_Natxt.Text, out num))
-            {
-                errorProvider1.SetError(Fecha_Natxt, "Ingrese edad del beneficiario");
-            }
-            else
-            {
-                errorProvider1.SetError(Fecha_Natxt, "");
-
-            }
-        }
+       
 
         private void numerosocioeliminartxt_Validating(object sender, CancelEventArgs e)
         {
@@ -816,5 +808,7 @@ namespace mutualsanjoseesposomaria
 
 
         }
+
+        
     }
 }

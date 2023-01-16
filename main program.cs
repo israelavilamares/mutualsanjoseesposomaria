@@ -27,16 +27,41 @@ namespace mutualsanjoseesposomaria
             nombretxt.Clear();
             apellidotxt.Clear();
             sexotxt.Clear();
-            fecha_ingresotxt.Clear();
             ciudadtxt.Clear();
             calletxt.Clear();
             observacionestxb.Clear();
             telefonotxt.Clear();
-            fecha_Ntxt.Clear();
+            
             edadtxt.Clear();
-            fecha_ingresotxt.Clear();
+            
             coloniatxb.Clear();
             //estado de la persona
+            if(orgarbox1.Text != "")
+            {
+                orgarbox1.Text = "";
+            }
+            if (organbox2.Text != "")
+            {
+                organbox2.Text = "";
+            }
+            if (orgabox3.Text != "")
+            {
+                orgabox3.Text = "";
+
+            }
+            if (comboxfeN1.Text != "")
+            {
+                comboxfeN1.Text = "";
+            }
+            if (comboxfeN2.Text != "")
+            {
+                comboxfeN2.Text = "";
+            }
+            if (comboxfeN3.Text != "")
+            {
+                comboxfeN3.Text = "";
+            }
+
             if (estadoctx.Text == "FALLECIDO")
             {
                 estadoctx.Text = "NINGUNO";
@@ -44,6 +69,10 @@ namespace mutualsanjoseesposomaria
             else if (estadoctx.Text == "VIGENTE")
             {
                 estadoctx.Text = "NINGUNO";
+            }
+            if(tipo_pctx.Text != "")
+            {
+                tipo_pctx.Text = "";
             }
             
         }
@@ -70,17 +99,24 @@ namespace mutualsanjoseesposomaria
                 ok = false;
                 errorProvider1.SetError(sexotxt, "ingresa el sexo de socio");
             }
-            if ((fecha_ingresotxt.Text == "") || fecha_ingresotxt.Text == "AAAA/MM/DD")
+            if (orgarbox1.Text == "")
             {
                 ok = false;
-                errorProvider1.SetError(fecha_ingresotxt, "Ingresa La Fecha de Ingreso Del Socio");
+                errorProvider1.SetError(orgarbox1, "ingresa el Año de Ingreso");
 
             }
-            if ((fecha_Ntxt.Text == "") || (fecha_Ntxt.Text == "AAAA/MM/DD") )
+            if (organbox2.Text == "")
             {
                 ok = false;
-                errorProvider1.SetError(fecha_Ntxt, "ingresa la fecha de nacimiento de socio");
+                errorProvider1.SetError(organbox2, "ingresa la el Mes de ingreso");               
             }
+            if (orgabox3.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(orgabox3, "ingresa la el Dia de ingreso");
+
+            }
+
             if (ciudadtxt.Text == "")
             {
                 ok = false;
@@ -92,16 +128,12 @@ namespace mutualsanjoseesposomaria
                 errorProvider1.SetError(calletxt, "Ingresa la calle");
             }
        
-            if (observacionestxb.Text == "")
-            {
-                ok = false;
-                errorProvider1.SetError(observacionestxb, "Ingresa el numero de casa");
-            }
             if (telefonotxt.Text == "")
             {
                 ok = false;
                 errorProvider1.SetError(telefonotxt, "Ingresa el numero de telefono");
             }
+            
             if (tipo_pctx.Text == "")
             {
                 ok = false;
@@ -118,6 +150,24 @@ namespace mutualsanjoseesposomaria
                 errorProvider1.SetError(coloniatxb, "Ingresa El Colonia Del Socio");
 
             }
+            if(comboxfeN1.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(comboxfeN1, "Ingresa El Año De Nacimiento Socio");
+
+            }
+            if (comboxfeN2.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(comboxfeN2, "Ingresa El Mes De Nacimiento Socio");
+
+            }
+            if (comboxfeN3.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(comboxfeN3, "Ingresa El Dia De Nacimiento Socio");
+
+            }
             return ok;
         }
         private void borrarerrores()
@@ -126,15 +176,19 @@ namespace mutualsanjoseesposomaria
             errorProvider1.SetError(nombretxt, "");
             errorProvider1.SetError(apellidotxt, "");
             errorProvider1.SetError(sexotxt, "");
-            errorProvider1.SetError(fecha_Ntxt, "");
             errorProvider1.SetError(ciudadtxt, "");
             errorProvider1.SetError(calletxt, "");
           //  errorProvider1.SetError(edadtxt, "");
-            errorProvider1.SetError(observacionestxb, "");
+         
             errorProvider1.SetError(telefonotxt, "");
+            //tipo de pago
             errorProvider1.SetError(tipo_pctx, "");
             errorProvider1.SetError(estadoctx, "");
             errorProvider1.SetError(coloniatxb, "");
+            //estos son los combox de Año/Mes/Dia
+            errorProvider1.SetError(orgabox3, "");
+            errorProvider1.SetError(organbox2, "");
+            errorProvider1.SetError(orgarbox1, "");
 
         }
 
@@ -144,33 +198,41 @@ namespace mutualsanjoseesposomaria
         {
          if (Validacion())
          {
-                string obser = observacionestxb.Text;
-         // int numero_socio = int.Parse(idtxt.Text);                       
             string nombre_socio = nombretxt.Text.ToUpper();
             string apellido_socio = apellidotxt.Text.ToUpper();
             string sexo_socio = sexotxt.Text.ToUpper();
 
-            //conversion
-            //string formato;
-            string nueva = fecha_ingresotxt.Text;
-            //string nueva = fecha.ToString("yyyy/MM/dd hh:mm:ss");
-            //mostrar en texbox
-            //fecha de nacimiento
-            string fecha_naciemnto = fecha_Ntxt.Text;
+                //conversion
+                //string formato;
+                //este es el acomodo de los combox de
+                //la  fecha de ingreso
+                string acomdo = orgarbox1.Text+"/"+organbox2.Text+"/"+orgabox3.Text;
+                //se pasa a otra variable que esta en
+                //la sentecia sql de insert
+                string nueva = acomdo;
+                
 
-        
-          //  obtfechact - Convert.ToDateTime(fecha_Ntxt);
+
+                //el acomodo de la fecha de nacimiento
+                //siguientes combox
+                //manera dd/MM/yyyy
+                //para que tenga erres 
+             string acomodofechaNac = comboxfeN1.Text+"/"+comboxfeN2.Text+"/"+comboxfeN3.Text;
+                //fecha de nacimiento
+            string fecha_naciemnto = acomodofechaNac;
+                    
 
             string ciudad_socio = ciudadtxt.Text.ToUpper();
             string calle_socio = calletxt.Text.ToUpper();
             string estado = estadoctx.Text;
-            string colonia = coloniatxb.Text;
-
+            string colonia = coloniatxb.Text;               
                 
-                
+                //atrapar los errores y convierte a la edad
+                //con  solo la fecha de nacimineto
             DateTime obtfechact = DateTime.Now;
                 try
                 {
+
                     DateTime fechanac = DateTime.Parse(fecha_naciemnto);
                     TimeSpan diferencia = obtfechact - fechanac;
                     double dias = diferencia.TotalDays;
@@ -184,10 +246,11 @@ namespace mutualsanjoseesposomaria
                 }
         
 
-
-                string sql = "INSERT INTO mutualsanjose.socios(id,nombre,apellido,sexo,fecha_ingreso,ciudad,calle,numero,tipo_p,telefono,edad,fecha_naciento,estado,colonia,observaciones)VALUES('" + idtxt.Text + "','" + nombre_socio + "','" + apellido_socio + "','" + sexo_socio + "','" + nueva + "','" + ciudad_socio + "','" + calle_socio + "','" + tipo_pctx.Text + "','" + telefonotxt.Text + "','" + edadtxt.Text + "','" + fecha_naciemnto + "','" + estado + "','" + colonia + "','"+ obser +"')";
-
+                //sentencia sql para incertar
+                string sql = "INSERT INTO mutualsanjose.socios(id,nombre,apellido,sexo,fecha_ingreso,ciudad,calle,tipo_p,telefono,edad,fecha_naciento,estado,colonia,observaciones)VALUES('" + idtxt.Text + "','" + nombre_socio + "','" + apellido_socio + "','" + sexo_socio + "','" + nueva + "','" + ciudad_socio + "','" + calle_socio + "','" + tipo_pctx.Text + "','" + telefonotxt.Text + "','" + edadtxt.Text + "','" + fecha_naciemnto + "','" + estado + "','" + colonia + "','"+ observacionestxb.Text + "')";
+                //establecemos la conexion 
                 MySqlConnection conexionDB = Conexion.conexion();
+                //abrimos la conexion 
                 conexionDB.Open();
 
                 try
@@ -266,23 +329,8 @@ namespace mutualsanjoseesposomaria
             UP.Show();
         }
 
-        private void fecha_ingresotxt_Leave(object sender, EventArgs e)
-        {
-            if(fecha_ingresotxt.Text == "")
-            {
-                fecha_ingresotxt.Text = "AAAA/MM/DD";
-                fecha_ingresotxt.ForeColor = Color.Gray;
-            }
-        }
-
-        private void fecha_ingresotxt_Enter(object sender, EventArgs e)
-        {
-            if(fecha_ingresotxt.Text == "AAAA/MM/DD")
-            {
-                fecha_ingresotxt.Text = "";
-                fecha_ingresotxt.ForeColor = Color.Black;
-            }
-        }
+        
+        
 
         private void pAGOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -290,23 +338,7 @@ namespace mutualsanjoseesposomaria
             P.Show();
         }
 
-        private void fecha_Ntxt_Enter(object sender, EventArgs e)
-        {
-            if(fecha_Ntxt.Text == "AAAA/MM/DD" )
-            {
-                fecha_Ntxt.Text = "";
-                fecha_Ntxt.ForeColor = Color.Black;
-            }
-        }
-
-        private void fecha_Ntxt_Leave(object sender, EventArgs e)
-        {
-            if (fecha_Ntxt.Text == "")
-            {
-                fecha_Ntxt.Text = "AAAA/MM/DD";
-                fecha_Ntxt.ForeColor = Color.Black;
-            }
-        }
+        
 
         private void bENEFICIARIOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -347,19 +379,7 @@ namespace mutualsanjoseesposomaria
             }
         }
 
-        private void fecha_Ntxt_Validating(object sender, CancelEventArgs e)
-        {
-            DateTime fecha_Nac;
-            if (!DateTime.TryParse(fecha_Ntxt.Text, out fecha_Nac))
-            {
-                errorProvider1.SetError(fecha_Ntxt, "El formato es: AAAA/MM/DD");
-            }
-            else
-            {
-                errorProvider1.SetError(fecha_Ntxt, "");
-
-            }
-        }
+        
 
         private void idtxt_Validated(object sender, EventArgs e)
         {
@@ -396,25 +416,7 @@ namespace mutualsanjoseesposomaria
         }
 
       
-        private void numero_casatxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsNumber(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-
-            if (e.KeyChar == (char)13)
-            {
-            }
-        }
+       
 
         private void telefonotxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -442,7 +444,7 @@ namespace mutualsanjoseesposomaria
             Application.Exit();
         }
 
-     
+       
     }
 }
 
